@@ -8,6 +8,7 @@ public class EmailServiceInjector implements MessageServiceInjector {
 
 	@Override
 	public Consumer getConsumer() {
+		System.out.println(this.getClass().getSimpleName() + ":" + Thread.currentThread().getStackTrace()[1].getMethodName() );
 		MyDIApplication app = new MyDIApplication();
 		app.setService(new EmailServiceImpl());
 		return app;

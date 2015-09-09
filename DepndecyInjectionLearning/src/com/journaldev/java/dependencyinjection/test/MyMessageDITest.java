@@ -2,6 +2,7 @@ package com.journaldev.java.dependencyinjection.test;
 
 import com.journaldev.java.dependencyinjection.consumer.Consumer;
 import com.journaldev.java.dependencyinjection.injector.EmailServiceInjector;
+import com.journaldev.java.dependencyinjection.injector.FBServiceInjector;
 import com.journaldev.java.dependencyinjection.injector.MessageServiceInjector;
 import com.journaldev.java.dependencyinjection.injector.SMSServiceInjector;
 
@@ -21,6 +22,12 @@ public class MyMessageDITest {
 		
 		//Send SMS
 		injector = new SMSServiceInjector();
+		app = injector.getConsumer();
+		app.processMessages(msg, phone);
+
+		
+		//FB Post
+		injector = new FBServiceInjector();
 		app = injector.getConsumer();
 		app.processMessages(msg, phone);
 	}

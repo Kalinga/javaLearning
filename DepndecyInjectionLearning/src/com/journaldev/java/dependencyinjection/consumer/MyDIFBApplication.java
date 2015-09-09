@@ -2,22 +2,16 @@ package com.journaldev.java.dependencyinjection.consumer;
 
 import com.journaldev.java.dependencyinjection.service.MessageService;
 
-public class MyDIApplication implements Consumer{
+public class MyDIFBApplication implements Consumer{
 
 	private MessageService service;
 	
-	public MyDIApplication(MessageService svc){
+	public MyDIFBApplication(MessageService svc){
 		System.out.println(this.getClass().getSimpleName());
 		this.service=svc;
 	}
 	
-	public MyDIApplication(){
-		System.out.println(this.getClass().getSimpleName());
-	}
-	
-	public void setService(MessageService service) {
-		this.service = service;
-	}
+	public MyDIFBApplication(){}
 
 	@Override
 	public void processMessages(String msg, String rec){
