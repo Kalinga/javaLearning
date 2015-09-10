@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.journaldev.java.dependencyinjection.consumer.Consumer;
 import com.journaldev.java.dependencyinjection.consumer.MyDIApplication;
+import com.journaldev.java.dependencyinjection.consumer.MyDIFBApplication;
 import com.journaldev.java.dependencyinjection.injector.MessageServiceInjector;
 import com.journaldev.java.dependencyinjection.service.MessageService;
 
@@ -20,14 +21,24 @@ public class MyDIApplicationJUnitTest {
 			@Override
 			public Consumer getConsumer() {
 				//mock the message service
-				return new MyDIApplication(new MessageService() {
+				return new Consumer (){
+					@Override
+					public void processMessages(String msg, String rec) {
+						
+						System.out.println( msg + ":" + rec);
+					}
 					
 					@Override
-					public void sendMessage(String msg, String rec) {
-						System.out.println("Mock Message Service implementation");
+					public void  setService(new MessageService() {
+						@Override
+						public void sendMessage(String msg, String rec) {
 						
+							System.out.println("Mock Message Service implementation");
+						}
+					}) {
+						System.out.println("set the service to this annonymous class ");
 					}
-				});
+				};
 			}
 		};
 	}
