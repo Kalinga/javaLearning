@@ -16,8 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SiteDisplay" android:label="@string/app_name"></activity>
-
+        <activity android:name=".SiteDisplay"></activity>
     </application>
 
 </manifest>

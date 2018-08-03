@@ -9,20 +9,16 @@ import android.util.Log;
 
 public class SiteDisplay extends AppCompatActivity {
     private static final String TAG = "RAYActivity";
+    private String siteName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            Intent intent = getIntent();
-            String site_name = intent.getStringExtra(MainActivity.ray_dairy_site);
-
-            TextView textView = findViewById(R.id.site_id);
-            if (null == textView)
-                Log.v(TAG, "textView is null");
-            textView.setText(site_name);
-            setContentView(R.layout.activity_site_display);
-        } catch ( ActivityNotFoundException e) {
-            e.printStackTrace();
-        }
+        setContentView(R.layout.activity_site_display);
+        Intent intent = getIntent();
+        siteName = intent.getStringExtra(MainActivity.ray_dairy_site);
+        TextView textView = findViewById(R.id.site_id);
+        textView.setText(siteName);
     }
+
+
 }
