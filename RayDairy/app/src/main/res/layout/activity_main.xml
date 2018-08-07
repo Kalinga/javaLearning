@@ -58,7 +58,7 @@
         android:width="150dp"
         android:height="100dp"
         android:onClick="buttonClickHandler"
-        android:text="@string/site_OTH"
+        android:text="@string/global_Settings"
         android:textSize="18sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
