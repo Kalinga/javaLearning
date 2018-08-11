@@ -3,13 +3,12 @@ package com.raydairy;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Mitch on 2016-05-13.
- */
 public class ViewListContents extends AppCompatActivity {
 
     ListView listView;
@@ -27,6 +26,10 @@ public class ViewListContents extends AppCompatActivity {
             ThreeColumn_ListAdapter adapter =  new ThreeColumn_ListAdapter(this,
                                                 R.layout.activity_fat_snf_price, userDataList);
             listView = (ListView) findViewById(R.id.listView);
+            // Add a header to the ListView
+            LayoutInflater inflater = getLayoutInflater();
+            ViewGroup header = (ViewGroup)inflater.inflate(R.layout.listview_header,listView,false);
+            listView.addHeaderView(header);
             listView.setAdapter(adapter);
         }
     }

@@ -19,7 +19,8 @@
         <activity android:name=".SiteDisplay" />
         <activity android:name=".GlobalSettingsActivity" />
         <activity android:name=".ViewListContents" />
-        <activity android:name=".activity_list_view"></activity>
+        <activity android:name=".activity_list_view" />
+        <activity android:name=".Calculator"></activity>
     </application>
 
 </manifest>
