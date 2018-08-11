@@ -6,25 +6,23 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".Calculator"
-    tools:layout_editor_absoluteY="25dp">
+    tools:context=".Calculator">
 
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="mul1_op2,mul1_op1" />
-
+    <!--1st row><-->
     <EditText
         android:id="@+id/mul1_op1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:ems="10"
+        android:focusable="true"
         android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul2_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul1_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,15 +30,16 @@
     <EditText
         android:id="@+id/mul1_op2"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
         android:focusable="true"
-        android:focusableInTouchMode ="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul2_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul1_res"
         app:layout_constraintStart_toEndOf="@+id/mul1_op1"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,15 +47,292 @@
     <EditText
         android:id="@+id/mul1_res"
         android:layout_width="0dp"
-        android:layout_height="41dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:focusable="false"
         android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
         android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul2_res"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mul1_op2"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--2nd row><-->
+    <EditText
+        android:id="@+id/mul2_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul3_op1"
+        app:layout_constraintEnd_toStartOf="@+id/mul2_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul1_op1" />
+
+    <EditText
+        android:id="@+id/mul2_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul3_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul2_res"
+        app:layout_constraintStart_toEndOf="@+id/mul2_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul1_op2" />
+
+    <EditText
+        android:id="@+id/mul2_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="false"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul3_res"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul2_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul1_res" />
+
+    <!--3rd row><-->
+    <EditText
+        android:id="@+id/mul3_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul4_op1"
+        app:layout_constraintEnd_toStartOf="@+id/mul3_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul2_op1" />
+
+    <EditText
+        android:id="@+id/mul3_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul4_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul3_res"
+        app:layout_constraintStart_toEndOf="@+id/mul3_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul2_op2" />
+
+    <EditText
+        android:id="@+id/mul3_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="false"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul4_res"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul3_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul2_res" />
+
+    <!--4th row><-->
+    <EditText
+        android:id="@+id/mul4_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul5_op1"
+        app:layout_constraintEnd_toStartOf="@+id/mul4_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul3_op1" />
+
+    <EditText
+        android:id="@+id/mul4_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul5_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul4_res"
+        app:layout_constraintStart_toEndOf="@+id/mul4_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul3_op2" />
+
+    <EditText
+        android:id="@+id/mul4_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="false"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul5_res"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul4_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul3_res" />
+
+    <!--5th row><-->
+    <EditText
+        android:id="@+id/mul5_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul6_op1"
+        app:layout_constraintEnd_toStartOf="@+id/mul5_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul4_op1" />
+
+    <EditText
+        android:id="@+id/mul5_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul6_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul5_res"
+        app:layout_constraintStart_toEndOf="@+id/mul5_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul4_op2" />
+
+    <EditText
+        android:id="@+id/mul5_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="false"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/mul6_res"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul5_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul4_res" />
+
+    <!--6th row><-->
+    <EditText
+        android:id="@+id/mul6_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:focusable="true"
+        android:inputType="numberDecimal"
+
+        android:paddingBottom="@dimen/bottomPading"
+        app:layout_constraintEnd_toStartOf="@+id/mul6_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul5_op1" />
+
+    <EditText
+        android:id="@+id/mul6_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberDecimal"
+        android:focusable="true"
+
+        app:layout_constraintTop_toBottomOf="@id/mul5_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul6_res"
+        app:layout_constraintStart_toEndOf="@+id/mul6_op1" />
+
+    <EditText
+        android:id="@+id/mul6_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberDecimal"
+        android:focusable="false"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toBottomOf="@id/mul5_res"
+        app:layout_constraintStart_toEndOf="@+id/mul6_op2"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

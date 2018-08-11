@@ -8,6 +8,8 @@
 
     <string name="title_activity_global_settings">Settings</string>
 
+    <string name="height">40dp</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->

@@ -9,12 +9,18 @@ import android.widget.EditText;
 public class Calculator extends AppCompatActivity implements View.OnFocusChangeListener {
     private static final String TAG = "RAYActivity";
 
+    private void setOnFocusChangeListener(int id) {
+        EditText mulOp2 = findViewById(id);
+        mulOp2.setOnFocusChangeListener(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        EditText mul1 = findViewById(R.id.mul1_op2);
-        mul1.setOnFocusChangeListener(this);
+
+        setOnFocusChangeListener(R.id.mul1_op2);
+        setOnFocusChangeListener(R.id.mul2_op2);
 
     }
 
