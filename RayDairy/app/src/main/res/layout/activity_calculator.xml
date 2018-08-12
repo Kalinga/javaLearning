@@ -20,12 +20,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
 
-        android:hint="5"
-        
-        android:nextFocusDown="@+id/mul1_op2"
-
-        
         android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/mul1_op2"
+        android:hint="1"
+
         app:layout_constraintBottom_toTopOf="@+id/mul2_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul1_op2"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,18 +37,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="2dp"
-        
-        
-        
-
-        android:hint="6"
-        android:nextFocusDown="@+id/mul2_op1"
-
-        
 
         android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/mul2_op1"
+        android:hint="6"
+
+
         app:layout_constraintBottom_toTopOf="@+id/mul2_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul1_res"
         app:layout_constraintStart_toEndOf="@+id/mul1_op1"
@@ -66,12 +59,9 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="2dp"
-        
-        android:focusable="false"
-        
 
-        
-        android:hint="5 x 6 = 30"
+        android:focusable="false"
+        android:hint="1 x 6 = 6"
 
 
         android:paddingBottom="@dimen/bottomPading"
@@ -83,6 +73,7 @@
         app:layout_constraintStart_toEndOf="@+id/mul1_op2"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <!--2nd row><-->
     <EditText
         android:id="@+id/mul2_op1"
@@ -93,12 +84,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
-        android:nextFocusDown="@+id/mul2_op2"
-        
 
-        
         android:background="@drawable/boarder_color_2"
+
+
+        android:nextFocusDown="@+id/mul2_op2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul3_op1"
@@ -115,11 +105,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
-        android:nextFocusDown="@+id/mul3_op1"
-        
-        
+
         android:background="@drawable/boarder_color_2"
+
+
+        android:nextFocusDown="@+id/mul3_op1"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul3_op2"
@@ -136,10 +126,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:focusable="false"
-        
-        
         android:background="@drawable/boarder_color_2"
+
+
+        android:focusable="false"
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -151,6 +141,7 @@
         app:layout_constraintTop_toBottomOf="@id/mul1_res" />
 
     <!--3rd row><-->
+
     <EditText
         android:id="@+id/mul3_op1"
         android:layout_width="0dp"
@@ -160,17 +151,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
+
         android:nextFocusDown="@+id/mul3_op2"
-        
-        
-        
+
+
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul4_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul3_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul2_op1" />
+
 
     <EditText
         android:id="@+id/mul3_op2"
@@ -181,17 +172,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
+
         android:nextFocusDown="@+id/mul4_op1"
-        
-        
-        
+
+
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul4_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul3_res"
         app:layout_constraintStart_toEndOf="@+id/mul3_op1"
         app:layout_constraintTop_toBottomOf="@id/mul2_op2" />
+
 
     <EditText
         android:id="@+id/mul3_res"
@@ -203,9 +194,8 @@
         android:layout_marginStart="8dp"
 
         android:focusable="false"
-        
-        
-        
+
+
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -216,7 +206,9 @@
         app:layout_constraintStart_toEndOf="@+id/mul3_op2"
         app:layout_constraintTop_toBottomOf="@id/mul2_res" />
 
+
     <!--4th row><-->
+
     <EditText
         android:id="@+id/mul4_op1"
         android:layout_width="0dp"
@@ -226,18 +218,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
-        android:nextFocusDown="@+id/mul4_op2"
-        
 
-        
         android:background="@drawable/boarder_color_2"
+
+
+        android:nextFocusDown="@+id/mul4_op2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul5_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul4_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul3_op1" />
+
 
     <EditText
         android:id="@+id/mul4_op2"
@@ -248,18 +240,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
-        android:nextFocusDown="@+id/mul5_op1"
-        
 
-        
         android:background="@drawable/boarder_color_2"
+
+
+        android:nextFocusDown="@+id/mul5_op1"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul5_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul4_res"
         app:layout_constraintStart_toEndOf="@+id/mul4_op1"
         app:layout_constraintTop_toBottomOf="@id/mul3_op2" />
+
 
     <EditText
         android:id="@+id/mul4_res"
@@ -270,11 +262,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:focusable="false"
-        
-
-        
         android:background="@drawable/boarder_color_2"
+
+
+        android:focusable="false"
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -286,6 +277,7 @@
         app:layout_constraintTop_toBottomOf="@id/mul3_res" />
 
     <!--5th row><-->
+
     <EditText
         android:id="@+id/mul5_op1"
         android:layout_width="0dp"
@@ -295,7 +287,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
+
         android:nextFocusDown="@+id/mul5_op2"
         android:paddingBottom="@dimen/bottomPading"
 
@@ -303,7 +295,6 @@
         app:layout_constraintEnd_toStartOf="@+id/mul5_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul4_op1" />
-
     <EditText
         android:id="@+id/mul5_op2"
         android:layout_width="0dp"
@@ -313,7 +304,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
+
         android:nextFocusDown="@+id/mul6_op1"
         android:paddingBottom="@dimen/bottomPading"
 
@@ -352,15 +343,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        
+
+        android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul6_op2"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         app:layout_constraintEnd_toStartOf="@+id/mul6_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul5_op1" />
-
     <EditText
         android:id="@+id/mul6_op2"
         android:layout_width="0dp"
@@ -370,12 +360,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:paddingBottom="@dimen/bottomPading"
         android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul7_op1"
+        android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintTop_toBottomOf="@id/mul5_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul6_res"
-        app:layout_constraintStart_toEndOf="@+id/mul6_op1" />
+        app:layout_constraintStart_toEndOf="@+id/mul6_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul5_op2" />
 
     <EditText
         android:id="@+id/mul6_res"
@@ -386,16 +377,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
+        android:background="@drawable/boarder_color_2"
         android:focusable="false"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintTop_toBottomOf="@id/mul5_res"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mul6_op2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/mul5_res" />
+
 
     <!--7th row><-->
     <EditText
@@ -407,10 +399,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-
         android:nextFocusDown="@+id/mul7_op2"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         app:layout_constraintEnd_toStartOf="@+id/mul7_op2"
         app:layout_constraintStart_toStartOf="parent"
@@ -427,11 +417,11 @@
 
         android:nextFocusDown="@+id/mul8_op1"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
-        app:layout_constraintTop_toBottomOf="@id/mul6_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul7_res"
-        app:layout_constraintStart_toEndOf="@+id/mul7_op1" />
+        app:layout_constraintStart_toEndOf="@+id/mul7_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul6_op2" />
+
 
     <EditText
         android:id="@+id/mul7_res"
@@ -442,16 +432,16 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
+        android:background="@drawable/boarder_color_2"
         android:focusable="false"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintTop_toBottomOf="@id/mul6_res"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mul7_op2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/mul6_res" />
 
     <!--8th row><-->
     <EditText
@@ -464,13 +454,14 @@
         android:layout_marginStart="8dp"
 
 
+        android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul8_op2"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         app:layout_constraintEnd_toStartOf="@+id/mul8_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul7_op1" />
+
 
     <EditText
         android:id="@+id/mul8_op2"
@@ -481,13 +472,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
+        android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul9_op1"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
-        app:layout_constraintTop_toBottomOf="@id/mul7_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul8_res"
-        app:layout_constraintStart_toEndOf="@+id/mul8_op1" />
+        app:layout_constraintStart_toEndOf="@+id/mul8_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul7_op2" />
+
 
     <EditText
         android:id="@+id/mul8_res"
@@ -498,14 +490,225 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
+        android:background="@drawable/boarder_color_2"
         android:focusable="false"
         android:paddingBottom="@dimen/bottomPading"
-        android:background="@drawable/boarder_color_2"
 
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintTop_toBottomOf="@id/mul7_res"
-        app:layout_constraintStart_toEndOf="@+id/mul7_op2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul8_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul7_res" />
+
+    <!--9th row><-->
+    <EditText
+        android:id="@+id/mul9_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:nextFocusDown="@+id/mul9_op2"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul9_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul8_op1" />
+
+    <EditText
+        android:id="@+id/mul9_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:nextFocusDown="@+id/mul10_op1"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul9_res"
+        app:layout_constraintStart_toEndOf="@+id/mul9_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul8_op2" />
+    <EditText
+        android:id="@+id/mul9_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul9_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul8_res" />
+
+    <!--10th row><-->
+    <EditText
+        android:id="@+id/mul10_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul10_op2"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul10_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul9_op1" />
+
+    <EditText
+        android:id="@+id/mul10_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul11_op1"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul10_res"
+        app:layout_constraintStart_toEndOf="@+id/mul10_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul9_op2" />
+
+
+    <EditText
+        android:id="@+id/mul10_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul10_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul9_res" />
+
+    <!--11th row><-->
+    <EditText
+        android:id="@+id/mul11_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:nextFocusDown="@+id/mul11_op2"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul11_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul10_op1" />
+
+    <EditText
+        android:id="@+id/mul11_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul11_res"
+        app:layout_constraintStart_toEndOf="@+id/mul11_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul10_op2" />
+    <EditText
+        android:id="@+id/mul11_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul11_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul10_res" />
+
+    <!--Result row><-->
+    <TextView
+        android:id="@+id/sub_total"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:text="Sub Total"
+        app:layout_constraintEnd_toStartOf="@+id/sub_total_val"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
+
+
+    <EditText
+        android:id="@+id/sub_total_val"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+
+        android:hint="sum of above"
+        android:inputType="numberDecimal"
+        android:paddingBottom="@dimen/bottomPading"
+
+
+        app:layout_constraintEnd_toStartOf="@+id/more_calc"
+        app:layout_constraintStart_toEndOf="@+id/sub_total"
+        app:layout_constraintTop_toBottomOf="@id/mul11_op2" />
+    <Button
+        android:id="@+id/more_calc"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:text="More++"
+
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sub_total_val"
+        app:layout_constraintTop_toBottomOf="@id/mul11_res" />
+
+
 </android.support.constraint.ConstraintLayout>
