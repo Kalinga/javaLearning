@@ -4,24 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
+    
     android:focusableInTouchMode="true"
     tools:context=".Calculator">
 
     <!--1st row><-->
     <EditText
         android:id="@+id/mul1_op1"
-        style="@style/Widget.AppCompat.EditText"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
+
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
-        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="2dp"
 
+        android:hint="5"
+        
+        android:nextFocusDown="@+id/mul1_op2"
+
+        
+        android:paddingBottom="@dimen/bottomPading"
         app:layout_constraintBottom_toTopOf="@+id/mul2_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul1_op2"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +39,18 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
-        android:paddingBottom="@dimen/bottomPading"
 
+        android:layout_marginTop="2dp"
+        
+        
+        
+
+        android:hint="6"
+        android:nextFocusDown="@+id/mul2_op1"
+
+        
+
+        android:paddingBottom="@dimen/bottomPading"
         app:layout_constraintBottom_toTopOf="@+id/mul2_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul1_res"
         app:layout_constraintStart_toEndOf="@+id/mul1_op1"
@@ -52,13 +64,20 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+
+        android:layout_marginTop="2dp"
+        
         android:focusable="false"
-        android:inputType="numberDecimal"
+        
+
+        
+        android:hint="5 x 6 = 30"
+
+
         android:paddingBottom="@dimen/bottomPading"
-
         android:textColor="@android:color/holo_red_dark"
-        android:textStyle="bold"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/mul2_res"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mul1_op2"
@@ -73,8 +92,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul2_op2"
+        
+
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul3_op1"
@@ -90,8 +114,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul3_op1"
+        
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul3_op2"
@@ -107,8 +135,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+
         android:focusable="false"
-        android:inputType="numberDecimal"
+        
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -128,8 +159,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul3_op2"
+        
+        
+        
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul4_op1"
@@ -145,8 +180,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul4_op1"
+        
+        
+        
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul4_op2"
@@ -162,8 +201,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+
         android:focusable="false"
-        android:inputType="numberDecimal"
+        
+        
+        
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -183,8 +225,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul4_op2"
+        
+
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul5_op1"
@@ -200,8 +247,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul5_op1"
+        
+
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul5_op2"
@@ -217,8 +269,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+
         android:focusable="false"
-        android:inputType="numberDecimal"
+        
+
+        
+        android:background="@drawable/boarder_color_2"
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -238,8 +294,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul5_op2"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul6_op1"
@@ -255,8 +312,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
+
+        
+        android:nextFocusDown="@+id/mul6_op1"
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintBottom_toTopOf="@+id/mul6_op2"
@@ -272,8 +330,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+
         android:focusable="false"
-        android:inputType="numberDecimal"
         android:paddingBottom="@dimen/bottomPading"
 
         android:textColor="@android:color/holo_red_dark"
@@ -293,10 +351,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
-        android:inputType="numberDecimal"
 
+        
+        android:nextFocusDown="@+id/mul6_op2"
         android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
         app:layout_constraintEnd_toStartOf="@+id/mul6_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul5_op1" />
@@ -305,13 +365,13 @@
         android:id="@+id/mul6_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
-        android:paddingBottom="@dimen/bottomPading"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:inputType="numberDecimal"
-        android:focusable="true"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
 
         app:layout_constraintTop_toBottomOf="@id/mul5_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul6_res"
@@ -321,18 +381,131 @@
         android:id="@+id/mul6_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
-        android:paddingBottom="@dimen/bottomPading"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:inputType="numberDecimal"
+
         android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
 
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
         app:layout_constraintTop_toBottomOf="@id/mul5_res"
         app:layout_constraintStart_toEndOf="@+id/mul6_op2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--7th row><-->
+    <EditText
+        android:id="@+id/mul7_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:nextFocusDown="@+id/mul7_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul7_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul6_op1" />
+
+    <EditText
+        android:id="@+id/mul7_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:nextFocusDown="@+id/mul8_op1"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        app:layout_constraintTop_toBottomOf="@id/mul6_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul7_res"
+        app:layout_constraintStart_toEndOf="@+id/mul7_op1" />
+
+    <EditText
+        android:id="@+id/mul7_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toBottomOf="@id/mul6_res"
+        app:layout_constraintStart_toEndOf="@+id/mul7_op2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--8th row><-->
+    <EditText
+        android:id="@+id/mul8_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:nextFocusDown="@+id/mul8_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul8_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul7_op1" />
+
+    <EditText
+        android:id="@+id/mul8_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:nextFocusDown="@+id/mul9_op1"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        app:layout_constraintTop_toBottomOf="@id/mul7_op2"
+        app:layout_constraintEnd_toStartOf="@+id/mul8_res"
+        app:layout_constraintStart_toEndOf="@+id/mul8_op1" />
+
+    <EditText
+        android:id="@+id/mul8_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+        android:background="@drawable/boarder_color_2"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toBottomOf="@id/mul7_res"
+        app:layout_constraintStart_toEndOf="@+id/mul7_op2"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

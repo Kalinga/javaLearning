@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="height">30dp</dimen>
-    <dimen name="bottomPading">5dp</dimen>
+    <dimen name="height">20dp</dimen>
+    <dimen name="layout_width">0dp</dimen>
+    <dimen name="margin">8dp</dimen>
+    <dimen name="bottomPading">0dp</dimen>
 </resources>
