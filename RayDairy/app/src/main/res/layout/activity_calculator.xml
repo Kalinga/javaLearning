@@ -43,7 +43,6 @@
         android:nextFocusDown="@+id/mul2_op1"
         android:hint="6"
 
-
         app:layout_constraintBottom_toTopOf="@+id/mul2_op2"
         app:layout_constraintEnd_toStartOf="@+id/mul1_res"
         app:layout_constraintStart_toEndOf="@+id/mul1_op1"
@@ -57,13 +56,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="2dp"
 
         android:focusable="false"
         android:hint="1 x 6 = 6"
-
-
         android:paddingBottom="@dimen/bottomPading"
         android:textColor="@android:color/holo_red_dark"
 
@@ -86,10 +82,9 @@
 
 
         android:background="@drawable/boarder_color_2"
-
-
         android:nextFocusDown="@+id/mul2_op2"
         android:paddingBottom="@dimen/bottomPading"
+        android:hint="2"
 
         app:layout_constraintBottom_toTopOf="@+id/mul3_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul2_op2"
@@ -153,9 +148,8 @@
 
 
         android:nextFocusDown="@+id/mul3_op2"
-
-
         android:paddingBottom="@dimen/bottomPading"
+        android:hint="3"
 
         app:layout_constraintBottom_toTopOf="@+id/mul4_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul3_op2"
@@ -224,6 +218,7 @@
 
         android:nextFocusDown="@+id/mul4_op2"
         android:paddingBottom="@dimen/bottomPading"
+        android:hint="4"
 
         app:layout_constraintBottom_toTopOf="@+id/mul5_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul4_op2"
@@ -290,7 +285,7 @@
 
         android:nextFocusDown="@+id/mul5_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="5"
         app:layout_constraintBottom_toTopOf="@+id/mul6_op1"
         app:layout_constraintEnd_toStartOf="@+id/mul5_op2"
         app:layout_constraintStart_toStartOf="parent"
@@ -347,7 +342,7 @@
         android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul6_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="6"
         app:layout_constraintEnd_toStartOf="@+id/mul6_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul5_op1" />
@@ -401,7 +396,7 @@
 
         android:nextFocusDown="@+id/mul7_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="7"
         app:layout_constraintEnd_toStartOf="@+id/mul7_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul6_op1" />
@@ -457,7 +452,7 @@
         android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul8_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="8"
         app:layout_constraintEnd_toStartOf="@+id/mul8_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul7_op1" />
@@ -475,7 +470,6 @@
         android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul9_op1"
         android:paddingBottom="@dimen/bottomPading"
-
         app:layout_constraintEnd_toStartOf="@+id/mul8_res"
         app:layout_constraintStart_toEndOf="@+id/mul8_op1"
         app:layout_constraintTop_toBottomOf="@id/mul7_op2" />
@@ -513,7 +507,7 @@
 
         android:nextFocusDown="@+id/mul9_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="9"
         app:layout_constraintEnd_toStartOf="@+id/mul9_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul8_op1" />
@@ -566,7 +560,7 @@
         android:background="@drawable/boarder_color_2"
         android:nextFocusDown="@+id/mul10_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="10"
         app:layout_constraintEnd_toStartOf="@+id/mul10_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul9_op1" />
@@ -603,7 +597,6 @@
 
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mul10_op2"
         app:layout_constraintTop_toBottomOf="@id/mul9_res" />
@@ -620,7 +613,7 @@
 
         android:nextFocusDown="@+id/mul11_op2"
         android:paddingBottom="@dimen/bottomPading"
-
+        android:hint="11"
         app:layout_constraintEnd_toStartOf="@+id/mul11_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mul10_op1" />
@@ -635,6 +628,7 @@
         android:layout_marginStart="8dp"
 
         android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/mul1_op1"
 
         app:layout_constraintEnd_toStartOf="@+id/mul11_res"
         app:layout_constraintStart_toEndOf="@+id/mul11_op1"
@@ -659,21 +653,6 @@
         app:layout_constraintTop_toBottomOf="@id/mul10_res" />
 
     <!--Result row><-->
-    <TextView
-        android:id="@+id/sub_total"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-
-        android:paddingBottom="@dimen/bottomPading"
-        android:text="Sub Total"
-        app:layout_constraintEnd_toStartOf="@+id/sub_total_val"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
-
 
     <EditText
         android:id="@+id/sub_total_val"
@@ -690,12 +669,14 @@
         android:inputType="numberDecimal"
         android:paddingBottom="@dimen/bottomPading"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reset_calc"
+        app:layout_constraintTop_toBottomOf="@id/mul11_res"
 
-        app:layout_constraintEnd_toStartOf="@+id/more_calc"
-        app:layout_constraintStart_toEndOf="@+id/sub_total"
-        app:layout_constraintTop_toBottomOf="@id/mul11_op2" />
+ />
+
     <Button
-        android:id="@+id/more_calc"
+        android:id="@+id/reset_calc"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -703,12 +684,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:text="More++"
+        android:onClick="buttonClickHandler"
+
+        android:text="Reset"
 
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sub_total_val"
-        app:layout_constraintTop_toBottomOf="@id/mul11_res" />
+        app:layout_constraintEnd_toStartOf="@+id/sub_total_val"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
 
 
 </android.support.constraint.ConstraintLayout>
