@@ -657,7 +657,7 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul1_op1"
+        android:nextFocusDown="@+id/mul12_op1"
 
         app:layout_constraintEnd_toStartOf="@+id/mul11_res"
         app:layout_constraintStart_toEndOf="@+id/mul11_op1"
@@ -682,6 +682,622 @@
         app:layout_constraintStart_toEndOf="@+id/mul11_op2"
         app:layout_constraintTop_toBottomOf="@id/mul10_res" />
 
+    <!--12th row><-->
+    <EditText
+        android:id="@+id/mul12_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul12_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="12"
+        app:layout_constraintEnd_toStartOf="@+id/mul12_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
+
+    <EditText
+        android:id="@+id/mul12_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul13_op1"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul12_res"
+        app:layout_constraintStart_toEndOf="@+id/mul12_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul11_op2" />
+
+
+    <EditText
+        android:id="@+id/mul12_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul12_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul11_res" />
+
+    <!--13th row><-->
+    <EditText
+        android:id="@+id/mul13_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul13_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="13"
+        app:layout_constraintEnd_toStartOf="@+id/mul13_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul12_op1" />
+
+    <EditText
+        android:id="@+id/mul13_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul14_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul13_res"
+        app:layout_constraintStart_toEndOf="@+id/mul13_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul12_op2" />
+    <EditText
+        android:id="@+id/mul13_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul13_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul12_res" />
+
+    <!--14th row><-->
+    <EditText
+        android:id="@+id/mul14_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul14_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="14"
+        app:layout_constraintEnd_toStartOf="@+id/mul14_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul13_op1" />
+
+    <EditText
+        android:id="@+id/mul14_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul15_op1"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul14_res"
+        app:layout_constraintStart_toEndOf="@+id/mul14_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul13_op2" />
+
+    <EditText
+        android:id="@+id/mul14_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul14_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul13_res" />
+
+    <!--15th row><-->
+    <EditText
+        android:id="@+id/mul15_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul15_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="15"
+        app:layout_constraintEnd_toStartOf="@+id/mul15_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul14_op1" />
+
+    <EditText
+        android:id="@+id/mul15_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul16_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul15_res"
+        app:layout_constraintStart_toEndOf="@+id/mul15_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul14_op2" />
+    <EditText
+        android:id="@+id/mul15_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul15_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul14_res" />
+
+    <!--16th row><-->
+    <EditText
+        android:id="@+id/mul16_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul16_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="16"
+        app:layout_constraintEnd_toStartOf="@+id/mul16_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul15_op1" />
+
+    <EditText
+        android:id="@+id/mul16_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul17_op1"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul16_res"
+        app:layout_constraintStart_toEndOf="@+id/mul16_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul15_op2" />
+
+    <EditText
+        android:id="@+id/mul16_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul16_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul15_res" />
+
+    <!--17th row><-->
+    <EditText
+        android:id="@+id/mul17_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul17_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="17"
+        app:layout_constraintEnd_toStartOf="@+id/mul17_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul16_op1" />
+
+    <EditText
+        android:id="@+id/mul17_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul18_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul17_res"
+        app:layout_constraintStart_toEndOf="@+id/mul17_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul16_op2" />
+    <EditText
+        android:id="@+id/mul17_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul17_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul16_res" />
+
+    <!--18th row><-->
+    <EditText
+        android:id="@+id/mul18_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul18_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="18"
+        app:layout_constraintEnd_toStartOf="@+id/mul18_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul17_op1" />
+
+    <EditText
+        android:id="@+id/mul18_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul19_op1"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul18_res"
+        app:layout_constraintStart_toEndOf="@+id/mul18_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul17_op2" />
+
+
+    <EditText
+        android:id="@+id/mul18_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul18_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul17_res" />
+
+    <!--19th row><-->
+    <EditText
+        android:id="@+id/mul19_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul19_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="19"
+        app:layout_constraintEnd_toStartOf="@+id/mul19_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul18_op1" />
+
+    <EditText
+        android:id="@+id/mul19_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul20_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul19_res"
+        app:layout_constraintStart_toEndOf="@+id/mul19_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul18_op2" />
+    <EditText
+        android:id="@+id/mul19_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul19_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul18_res" />
+
+    <!--20th row><-->
+    <EditText
+        android:id="@+id/mul20_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul20_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="20"
+        app:layout_constraintEnd_toStartOf="@+id/mul20_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul19_op1" />
+
+    <EditText
+        android:id="@+id/mul20_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:nextFocusDown="@+id/mul21_op1"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul20_res"
+        app:layout_constraintStart_toEndOf="@+id/mul20_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul19_op2" />
+
+
+    <EditText
+        android:id="@+id/mul20_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/boarder_color_2"
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul20_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul19_res" />
+
+    <!--21th row><-->
+    <EditText
+        android:id="@+id/mul21_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul21_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="21"
+        app:layout_constraintEnd_toStartOf="@+id/mul21_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul20_op1" />
+
+    <EditText
+        android:id="@+id/mul21_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/last_row_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/mul21_res"
+        app:layout_constraintStart_toEndOf="@+id/mul21_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul20_op2" />
+    <EditText
+        android:id="@+id/mul21_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mul21_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul20_res" />
+
+    <!--last row><-->
+    <EditText
+        android:id="@+id/last_row_op1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/last_row_op2"
+        android:paddingBottom="@dimen/bottomPading"
+        android:hint="22"
+        app:layout_constraintEnd_toStartOf="@+id/last_row_op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mul21_op1" />
+
+    <EditText
+        android:id="@+id/last_row_op2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:layout_marginTop="4dp"
+        android:nextFocusDown="@+id/mul1_op1"
+
+        app:layout_constraintEnd_toStartOf="@+id/last_row_res"
+        app:layout_constraintStart_toEndOf="@+id/last_row_op1"
+        app:layout_constraintTop_toBottomOf="@id/mul21_op2" />
+    <EditText
+        android:id="@+id/last_row_res"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="@dimen/bottomPading"
+
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/last_row_op2"
+        app:layout_constraintTop_toBottomOf="@id/mul21_res" />
     <!--Result row><-->
 
     <EditText
@@ -702,9 +1318,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reset_calc"
-        app:layout_constraintTop_toBottomOf="@id/mul11_res"
-
- />
+        app:layout_constraintTop_toBottomOf="@id/last_row_res" />
 
     <Button
         android:id="@+id/reset_calc"
@@ -724,7 +1338,7 @@
         app:layout_constraintEnd_toStartOf="@+id/sub_total_val"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
+        app:layout_constraintTop_toBottomOf="@id/last_row_op1" />
 
 
 </android.support.constraint.ConstraintLayout>

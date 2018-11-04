@@ -71,6 +71,50 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
         resetTextEdit(R.id.mul11_op1);
         resetTextEdit(R.id.mul11_op2);
         resetTextEdit(R.id.mul11_res);
+
+        resetTextEdit(R.id.mul12_op1);
+        resetTextEdit(R.id.mul12_op2);
+        resetTextEdit(R.id.mul12_res);
+
+        resetTextEdit(R.id.mul13_op1);
+        resetTextEdit(R.id.mul13_op2);
+        resetTextEdit(R.id.mul13_res);
+
+        resetTextEdit(R.id.mul14_op1);
+        resetTextEdit(R.id.mul14_op2);
+        resetTextEdit(R.id.mul14_res);
+
+        resetTextEdit(R.id.mul15_op1);
+        resetTextEdit(R.id.mul15_op2);
+        resetTextEdit(R.id.mul15_res);
+
+        resetTextEdit(R.id.mul16_op1);
+        resetTextEdit(R.id.mul16_op2);
+        resetTextEdit(R.id.mul16_res);
+
+        resetTextEdit(R.id.mul17_op1);
+        resetTextEdit(R.id.mul17_op2);
+        resetTextEdit(R.id.mul17_res);
+
+        resetTextEdit(R.id.mul18_op1);
+        resetTextEdit(R.id.mul18_op2);
+        resetTextEdit(R.id.mul18_res);
+
+        resetTextEdit(R.id.mul19_op1);
+        resetTextEdit(R.id.mul19_op2);
+        resetTextEdit(R.id.mul19_res);
+
+        resetTextEdit(R.id.mul20_op1);
+        resetTextEdit(R.id.mul20_op2);
+        resetTextEdit(R.id.mul20_res);
+
+        resetTextEdit(R.id.mul21_op1);
+        resetTextEdit(R.id.mul21_op2);
+        resetTextEdit(R.id.mul21_res);
+
+        resetTextEdit(R.id.last_row_op1);
+        resetTextEdit(R.id.last_row_op2);
+        resetTextEdit(R.id.last_row_res);
     }
 
     private void resetTextEdit(int id) {
@@ -94,6 +138,17 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
         setOnFocusChangeListener(R.id.mul9_op2);
         setOnFocusChangeListener(R.id.mul10_op2);
         setOnFocusChangeListener(R.id.mul11_op2);
+        setOnFocusChangeListener(R.id.mul12_op2);
+        setOnFocusChangeListener(R.id.mul13_op2);
+        setOnFocusChangeListener(R.id.mul14_op2);
+        setOnFocusChangeListener(R.id.mul15_op2);
+        setOnFocusChangeListener(R.id.mul16_op2);
+        setOnFocusChangeListener(R.id.mul17_op2);
+        setOnFocusChangeListener(R.id.mul18_op2);
+        setOnFocusChangeListener(R.id.mul19_op2);
+        setOnFocusChangeListener(R.id.mul20_op2);
+        setOnFocusChangeListener(R.id.mul21_op2);
+        setOnFocusChangeListener(R.id.last_row_op2);
     }
 
     @Override
@@ -116,6 +171,17 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
             double res9 = 0;
             double res10 = 0;
             double res11 = 0;
+            double res12 = 0;
+            double res13 = 0;
+            double res14 = 0;
+            double res15 = 0;
+            double res16 = 0;
+            double res17 = 0;
+            double res18 = 0;
+            double res19 = 0;
+            double res20 = 0;
+            double res21 = 0;
+            double res22 = 0;
 
             try {
                 float op2 =  Float.parseFloat(((EditText)v).getText().toString());
@@ -169,6 +235,50 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul11_op1)).getText().toString());
                     ((EditText) findViewById(R.id.mul11_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
+                if(R.id.mul12_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul12_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul12_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul13_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul13_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul13_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul14_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul14_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul14_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul15_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul15_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul15_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul16_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul16_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul16_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul17_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul17_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul17_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul18_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul18_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul18_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul19_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul19_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul19_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul20_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul20_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul20_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.mul21_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul21_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.mul21_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
+                if(R.id.last_row_op2 ==  v.getId()) {
+                    op1 = Float.parseFloat(((EditText) findViewById(R.id.last_row_op1)).getText().toString());
+                    ((EditText) findViewById(R.id.last_row_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                }
             } catch (java.lang.NumberFormatException e) {
                 Log.v(TAG, "NumberFormatException ");
             }
@@ -183,9 +293,20 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
             res9 = getMulRes(R.id.mul9_res);
             res10 = getMulRes(R.id.mul10_res);
             res11 = getMulRes(R.id.mul11_res);
+            res12 = getMulRes(R.id.mul12_res);
+            res13 = getMulRes(R.id.mul13_res);
+            res14 = getMulRes(R.id.mul14_res);
+            res15 = getMulRes(R.id.mul15_res);
+            res16 = getMulRes(R.id.mul6_res);
+            res17 = getMulRes(R.id.mul7_res);
+            res18 = getMulRes(R.id.mul8_res);
+            res19 = getMulRes(R.id.mul9_res);
+            res20 = getMulRes(R.id.mul20_res);
+            res21 = getMulRes(R.id.mul21_res);
+            res22 = getMulRes(R.id.last_row_res);
 
-
-            double subTotal = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11;
+            double subTotal = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11 +
+                              res12 + res13 + res14 + res15 + res16 + res17 + res18 + res19 + res20 + res21 + res22;
             Log.v(TAG, String.valueOf(subTotal));
             ((EditText) findViewById(R.id.sub_total_val)).setText(String.valueOf(Math.floor(subTotal)));
         } // focus out
