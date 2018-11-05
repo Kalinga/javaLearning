@@ -149,6 +149,31 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
         setOnFocusChangeListener(R.id.mul20_op2);
         setOnFocusChangeListener(R.id.mul21_op2);
         setOnFocusChangeListener(R.id.last_row_op2);
+
+        setOnFocusChangeListener(R.id.mul1_op1);
+        setOnFocusChangeListener(R.id.mul2_op1);
+        setOnFocusChangeListener(R.id.mul3_op1);
+        setOnFocusChangeListener(R.id.mul4_op1);
+        setOnFocusChangeListener(R.id.mul5_op1);
+        setOnFocusChangeListener(R.id.mul6_op1);
+        setOnFocusChangeListener(R.id.mul7_op1);
+        setOnFocusChangeListener(R.id.mul8_op1);
+        setOnFocusChangeListener(R.id.mul9_op1);
+        setOnFocusChangeListener(R.id.mul10_op1);
+        setOnFocusChangeListener(R.id.mul11_op1);
+        setOnFocusChangeListener(R.id.mul12_op1);
+        setOnFocusChangeListener(R.id.mul13_op1);
+        setOnFocusChangeListener(R.id.mul14_op1);
+        setOnFocusChangeListener(R.id.mul15_op1);
+        setOnFocusChangeListener(R.id.mul16_op1);
+        setOnFocusChangeListener(R.id.mul17_op1);
+        setOnFocusChangeListener(R.id.mul18_op1);
+        setOnFocusChangeListener(R.id.mul19_op1);
+        setOnFocusChangeListener(R.id.mul20_op1);
+        setOnFocusChangeListener(R.id.mul21_op1);
+        setOnFocusChangeListener(R.id.last_row_op1);
+
+
     }
 
     @Override
@@ -159,7 +184,9 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
         if (!hasFocus){
             Log.v(TAG, "focusOutHandler");
 
-            float op1;
+            float op1 = 0;
+            float op2 = 0;
+
             double res1 = 0;
             double res2 = 0;
             double res3 = 0;
@@ -184,99 +211,117 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
             double res22 = 0;
 
             try {
-                float op2 =  Float.parseFloat(((EditText)v).getText().toString());
-                Log.v(TAG, String.valueOf(op2));
+                //float op2 =  Float.parseFloat(((EditText)v).getText().toString());
+                //Log.v(TAG, String.valueOf(op2));
 
-                if(R.id.mul1_op2 ==  v.getId()) {
+                if(R.id.mul1_op2 ==  v.getId() || R.id.mul1_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul1_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul1_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul1_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul2_op2 ==  v.getId()) {
+                if(R.id.mul2_op2 ==  v.getId() || R.id.mul2_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul2_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul2_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul2_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul3_op2 ==  v.getId()) {
+                if(R.id.mul3_op2 ==  v.getId() || R.id.mul3_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul3_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul3_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul3_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul4_op2 ==  v.getId()) {
+                if(R.id.mul4_op2 ==  v.getId() || R.id.mul4_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul4_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul4_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul4_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul5_op2 ==  v.getId()) {
+                if(R.id.mul5_op2 ==  v.getId() || R.id.mul5_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul5_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul5_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul5_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul6_op2 ==  v.getId()) {
+                if(R.id.mul6_op2 ==  v.getId() || R.id.mul6_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul6_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul6_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul6_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul7_op2 ==  v.getId()) {
+                if(R.id.mul7_op2 ==  v.getId() || R.id.mul7_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul7_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul7_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul7_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul7_op2 ==  v.getId()) {
-                    op1 = Float.parseFloat(((EditText) findViewById(R.id.mul7_op1)).getText().toString());
-                    ((EditText) findViewById(R.id.mul7_res)).setText(String.valueOf(Math.floor(op1 * op2)));
-                }
-                if(R.id.mul8_op2 ==  v.getId()) {
+                if(R.id.mul8_op2 ==  v.getId() || R.id.mul8_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul8_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul8_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul8_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul9_op2 ==  v.getId()) {
+                if(R.id.mul9_op2 ==  v.getId() || R.id.mul9_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul9_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul9_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul9_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul10_op2 ==  v.getId()) {
+                if(R.id.mul10_op2 ==  v.getId() || R.id.mul10_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul10_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul10_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul10_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul11_op2 ==  v.getId()) {
+                if(R.id.mul11_op2 ==  v.getId() || R.id.mul11_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul11_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul11_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul11_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul12_op2 ==  v.getId()) {
+                if(R.id.mul12_op2 ==  v.getId() || R.id.mul12_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul12_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul12_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul12_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul13_op2 ==  v.getId()) {
+                if(R.id.mul13_op2 ==  v.getId() || R.id.mul13_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul13_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul13_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul13_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul14_op2 ==  v.getId()) {
+                if(R.id.mul14_op2 ==  v.getId() || R.id.mul14_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul14_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul14_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul14_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul15_op2 ==  v.getId()) {
+                if(R.id.mul15_op2 ==  v.getId() || R.id.mul15_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul15_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul15_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul15_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul16_op2 ==  v.getId()) {
+                if(R.id.mul16_op2 ==  v.getId() || R.id.mul16_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul16_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul16_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul16_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul17_op2 ==  v.getId()) {
+                if(R.id.mul17_op2 ==  v.getId() || R.id.mul17_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul17_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul17_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul17_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul18_op2 ==  v.getId()) {
+                if(R.id.mul18_op2 ==  v.getId() || R.id.mul18_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul18_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul18_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul18_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul19_op2 ==  v.getId()) {
+                if(R.id.mul19_op2 ==  v.getId() || R.id.mul19_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul19_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul19_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul19_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul20_op2 ==  v.getId()) {
+                if(R.id.mul20_op2 ==  v.getId() || R.id.mul20_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul20_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul20_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul20_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.mul21_op2 ==  v.getId()) {
+                if(R.id.mul21_op2 ==  v.getId() || R.id.mul21_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.mul21_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.mul21_op2)).getText().toString());
                     ((EditText) findViewById(R.id.mul21_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
-                if(R.id.last_row_op2 ==  v.getId()) {
+                if(R.id.last_row_op2 ==  v.getId() || R.id.last_row_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.last_row_op1)).getText().toString());
+                    op2 = Float.parseFloat(((EditText) findViewById(R.id.last_row_op2)).getText().toString());
                     ((EditText) findViewById(R.id.last_row_res)).setText(String.valueOf(Math.floor(op1 * op2)));
                 }
             } catch (java.lang.NumberFormatException e) {
