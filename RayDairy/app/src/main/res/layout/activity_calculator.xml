@@ -13,7 +13,7 @@
 
     <!--1st row><-->
     <EditText
-        android:id="@+id/mul1_op1"
+        android:id="@+id/row1_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
 
@@ -24,16 +24,16 @@
         android:layout_marginTop="2dp"
 
         android:paddingBottom="@dimen/bottomPading"
-        android:nextFocusDown="@+id/mul1_op2"
+        android:nextFocusDown="@+id/row1_op2"
         android:hint="1"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul2_op1"
-        app:layout_constraintEnd_toStartOf="@+id/mul1_op2"
+        app:layout_constraintBottom_toTopOf="@+id/row2_op1"
+        app:layout_constraintEnd_toStartOf="@+id/row1_op2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/mul1_op2"
+        android:id="@+id/row1_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -43,16 +43,16 @@
         android:layout_marginTop="2dp"
 
         android:paddingBottom="@dimen/bottomPading"
-        android:nextFocusDown="@+id/mul2_op1"
+        android:nextFocusDown="@+id/row2_op1"
         android:hint="6"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul2_op2"
-        app:layout_constraintEnd_toStartOf="@+id/mul1_res"
-        app:layout_constraintStart_toEndOf="@+id/mul1_op1"
+        app:layout_constraintBottom_toTopOf="@+id/row2_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row1_res"
+        app:layout_constraintStart_toEndOf="@+id/row1_op1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/mul1_res"
+        android:id="@+id/row1_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -67,15 +67,15 @@
         android:textColor="@android:color/holo_red_dark"
 
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mul2_res"
+        app:layout_constraintBottom_toTopOf="@+id/row2_res"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul1_op2"
+        app:layout_constraintStart_toEndOf="@+id/row1_op2"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <!--2nd row><-->
     <EditText
-        android:id="@+id/mul2_op1"
+        android:id="@+id/row2_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -87,16 +87,16 @@
         android:layout_marginTop="4dp"
         android:background="@drawable/boarder_color_2"
         android:hint="2"
-        android:nextFocusDown="@+id/mul2_op2"
+        android:nextFocusDown="@+id/row2_op2"
 
         android:paddingBottom="@dimen/bottomPading"
-        app:layout_constraintBottom_toTopOf="@+id/mul3_op1"
-        app:layout_constraintEnd_toStartOf="@+id/mul2_op2"
+        app:layout_constraintBottom_toTopOf="@+id/row3_op1"
+        app:layout_constraintEnd_toStartOf="@+id/row2_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul1_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row1_op1" />
 
     <EditText
-        android:id="@+id/mul2_op2"
+        android:id="@+id/row2_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -109,16 +109,16 @@
         android:background="@drawable/boarder_color_2"
 
 
-        android:nextFocusDown="@+id/mul3_op1"
+        android:nextFocusDown="@+id/row3_op1"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul3_op2"
-        app:layout_constraintEnd_toStartOf="@+id/mul2_res"
-        app:layout_constraintStart_toEndOf="@+id/mul2_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul1_op2" />
+        app:layout_constraintBottom_toTopOf="@+id/row3_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row2_res"
+        app:layout_constraintStart_toEndOf="@+id/row2_op1"
+        app:layout_constraintTop_toBottomOf="@id/row1_op2" />
 
     <EditText
-        android:id="@+id/mul2_res"
+        android:id="@+id/row2_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -136,15 +136,15 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul3_res"
+        app:layout_constraintBottom_toTopOf="@+id/row3_res"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul2_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul1_res" />
+        app:layout_constraintStart_toEndOf="@+id/row2_op2"
+        app:layout_constraintTop_toBottomOf="@id/row1_res" />
 
     <!--3rd row><-->
 
     <EditText
-        android:id="@+id/mul3_op1"
+        android:id="@+id/row3_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -154,18 +154,18 @@
 
         android:layout_marginTop="4dp"
 
-        android:nextFocusDown="@+id/mul3_op2"
+        android:nextFocusDown="@+id/row3_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="3"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul4_op1"
-        app:layout_constraintEnd_toStartOf="@+id/mul3_op2"
+        app:layout_constraintBottom_toTopOf="@+id/row4_op1"
+        app:layout_constraintEnd_toStartOf="@+id/row3_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul2_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row2_op1" />
 
 
     <EditText
-        android:id="@+id/mul3_op2"
+        android:id="@+id/row3_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -175,19 +175,19 @@
 
         android:layout_marginTop="4dp"
 
-        android:nextFocusDown="@+id/mul4_op1"
+        android:nextFocusDown="@+id/row4_op1"
 
 
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul4_op2"
-        app:layout_constraintEnd_toStartOf="@+id/mul3_res"
-        app:layout_constraintStart_toEndOf="@+id/mul3_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul2_op2" />
+        app:layout_constraintBottom_toTopOf="@+id/row4_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row3_res"
+        app:layout_constraintStart_toEndOf="@+id/row3_op1"
+        app:layout_constraintTop_toBottomOf="@id/row2_op2" />
 
 
     <EditText
-        android:id="@+id/mul3_res"
+        android:id="@+id/row3_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -204,16 +204,16 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul4_res"
+        app:layout_constraintBottom_toTopOf="@+id/row4_res"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul3_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul2_res" />
+        app:layout_constraintStart_toEndOf="@+id/row3_op2"
+        app:layout_constraintTop_toBottomOf="@id/row2_res" />
 
 
     <!--4th row><-->
 
     <EditText
-        android:id="@+id/mul4_op1"
+        android:id="@+id/row4_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -226,18 +226,18 @@
         android:layout_marginTop="4dp"
 
 
-        android:nextFocusDown="@+id/mul4_op2"
+        android:nextFocusDown="@+id/row4_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="4"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul5_op1"
-        app:layout_constraintEnd_toStartOf="@+id/mul4_op2"
+        app:layout_constraintBottom_toTopOf="@+id/row5_op1"
+        app:layout_constraintEnd_toStartOf="@+id/row4_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul3_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row3_op1" />
 
 
     <EditText
-        android:id="@+id/mul4_op2"
+        android:id="@+id/row4_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -250,17 +250,17 @@
         android:layout_marginTop="4dp"
 
 
-        android:nextFocusDown="@+id/mul5_op1"
+        android:nextFocusDown="@+id/row5_op1"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul5_op2"
-        app:layout_constraintEnd_toStartOf="@+id/mul4_res"
-        app:layout_constraintStart_toEndOf="@+id/mul4_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul3_op2" />
+        app:layout_constraintBottom_toTopOf="@+id/row5_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row4_res"
+        app:layout_constraintStart_toEndOf="@+id/row4_op1"
+        app:layout_constraintTop_toBottomOf="@id/row3_op2" />
 
 
     <EditText
-        android:id="@+id/mul4_res"
+        android:id="@+id/row4_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -278,15 +278,15 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul5_res"
+        app:layout_constraintBottom_toTopOf="@+id/row5_res"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul4_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul3_res" />
+        app:layout_constraintStart_toEndOf="@+id/row4_op2"
+        app:layout_constraintTop_toBottomOf="@id/row3_res" />
 
     <!--5th row><-->
 
     <EditText
-        android:id="@+id/mul5_op1"
+        android:id="@+id/row5_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -296,15 +296,15 @@
 
         android:layout_marginTop="4dp"
 
-        android:nextFocusDown="@+id/mul5_op2"
+        android:nextFocusDown="@+id/row5_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="5"
-        app:layout_constraintBottom_toTopOf="@+id/mul6_op1"
-        app:layout_constraintEnd_toStartOf="@+id/mul5_op2"
+        app:layout_constraintBottom_toTopOf="@+id/row6_op1"
+        app:layout_constraintEnd_toStartOf="@+id/row5_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul4_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row4_op1" />
     <EditText
-        android:id="@+id/mul5_op2"
+        android:id="@+id/row5_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -314,16 +314,16 @@
 
         android:layout_marginTop="4dp"
 
-        android:nextFocusDown="@+id/mul6_op1"
+        android:nextFocusDown="@+id/row6_op1"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul6_op2"
-        app:layout_constraintEnd_toStartOf="@+id/mul5_res"
-        app:layout_constraintStart_toEndOf="@+id/mul5_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul4_op2" />
+        app:layout_constraintBottom_toTopOf="@+id/row6_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row5_res"
+        app:layout_constraintStart_toEndOf="@+id/row5_op1"
+        app:layout_constraintTop_toBottomOf="@id/row4_op2" />
 
     <EditText
-        android:id="@+id/mul5_res"
+        android:id="@+id/row5_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -338,14 +338,14 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/mul6_res"
+        app:layout_constraintBottom_toTopOf="@+id/row6_res"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul5_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul4_res" />
+        app:layout_constraintStart_toEndOf="@+id/row5_op2"
+        app:layout_constraintTop_toBottomOf="@id/row4_res" />
 
     <!--6th row><-->
     <EditText
-        android:id="@+id/mul6_op1"
+        android:id="@+id/row6_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -356,14 +356,14 @@
         android:layout_marginTop="4dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul6_op2"
+        android:nextFocusDown="@+id/row6_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="6"
-        app:layout_constraintEnd_toStartOf="@+id/mul6_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row6_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul5_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row5_op1" />
     <EditText
-        android:id="@+id/mul6_op2"
+        android:id="@+id/row6_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -373,15 +373,15 @@
         android:layout_marginTop="4dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul7_op1"
+        android:nextFocusDown="@+id/row7_op1"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul6_res"
-        app:layout_constraintStart_toEndOf="@+id/mul6_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul5_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row6_res"
+        app:layout_constraintStart_toEndOf="@+id/row6_op1"
+        app:layout_constraintTop_toBottomOf="@id/row5_op2" />
 
     <EditText
-        android:id="@+id/mul6_res"
+        android:id="@+id/row6_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -398,13 +398,13 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul6_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul5_res" />
+        app:layout_constraintStart_toEndOf="@+id/row6_op2"
+        app:layout_constraintTop_toBottomOf="@id/row5_res" />
 
 
     <!--7th row><-->
     <EditText
-        android:id="@+id/mul7_op1"
+        android:id="@+id/row7_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -413,15 +413,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
 
-        android:nextFocusDown="@+id/mul7_op2"
+        android:nextFocusDown="@+id/row7_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="7"
-        app:layout_constraintEnd_toStartOf="@+id/mul7_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row7_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul6_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row6_op1" />
 
     <EditText
-        android:id="@+id/mul7_op2"
+        android:id="@+id/row7_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -430,16 +430,16 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul8_op1"
+        android:nextFocusDown="@+id/row8_op1"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul7_res"
-        app:layout_constraintStart_toEndOf="@+id/mul7_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul6_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row7_res"
+        app:layout_constraintStart_toEndOf="@+id/row7_op1"
+        app:layout_constraintTop_toBottomOf="@id/row6_op2" />
 
 
     <EditText
-        android:id="@+id/mul7_res"
+        android:id="@+id/row7_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -455,12 +455,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul7_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul6_res" />
+        app:layout_constraintStart_toEndOf="@+id/row7_op2"
+        app:layout_constraintTop_toBottomOf="@id/row6_res" />
 
     <!--8th row><-->
     <EditText
-        android:id="@+id/mul8_op1"
+        android:id="@+id/row8_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -471,16 +471,16 @@
 
         android:layout_marginTop="4dp"
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul8_op2"
+        android:nextFocusDown="@+id/row8_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="8"
-        app:layout_constraintEnd_toStartOf="@+id/mul8_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row8_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul7_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row7_op1" />
 
 
     <EditText
-        android:id="@+id/mul8_op2"
+        android:id="@+id/row8_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -490,15 +490,15 @@
 
         android:layout_marginTop="4dp"
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul9_op1"
+        android:nextFocusDown="@+id/row9_op1"
         android:paddingBottom="@dimen/bottomPading"
-        app:layout_constraintEnd_toStartOf="@+id/mul8_res"
-        app:layout_constraintStart_toEndOf="@+id/mul8_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul7_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row8_res"
+        app:layout_constraintStart_toEndOf="@+id/row8_op1"
+        app:layout_constraintTop_toBottomOf="@id/row7_op2" />
 
 
     <EditText
-        android:id="@+id/mul8_res"
+        android:id="@+id/row8_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -515,12 +515,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul8_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul7_res" />
+        app:layout_constraintStart_toEndOf="@+id/row8_op2"
+        app:layout_constraintTop_toBottomOf="@id/row7_res" />
 
     <!--9th row><-->
     <EditText
-        android:id="@+id/mul9_op1"
+        android:id="@+id/row9_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -528,16 +528,16 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:nextFocusDown="@+id/mul9_op2"
+        android:nextFocusDown="@+id/row9_op2"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="9"
-        app:layout_constraintEnd_toStartOf="@+id/mul9_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row9_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul8_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row8_op1" />
 
     <EditText
-        android:id="@+id/mul9_op2"
+        android:id="@+id/row9_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -545,15 +545,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
 
-        android:nextFocusDown="@+id/mul10_op1"
+        android:nextFocusDown="@+id/row10_op1"
         android:paddingBottom="@dimen/bottomPading"
 
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/mul9_res"
-        app:layout_constraintStart_toEndOf="@+id/mul9_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul8_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row9_res"
+        app:layout_constraintStart_toEndOf="@+id/row9_op1"
+        app:layout_constraintTop_toBottomOf="@id/row8_op2" />
     <EditText
-        android:id="@+id/mul9_res"
+        android:id="@+id/row9_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -569,12 +569,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul9_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul8_res" />
+        app:layout_constraintStart_toEndOf="@+id/row9_op2"
+        app:layout_constraintTop_toBottomOf="@id/row8_res" />
 
     <!--10th row><-->
     <EditText
-        android:id="@+id/mul10_op1"
+        android:id="@+id/row10_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -585,15 +585,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul10_op2"
+        android:nextFocusDown="@+id/row10_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="10"
-        app:layout_constraintEnd_toStartOf="@+id/mul10_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row10_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul9_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row9_op1" />
 
     <EditText
-        android:id="@+id/mul10_op2"
+        android:id="@+id/row10_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -602,17 +602,17 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul11_op1"
+        android:nextFocusDown="@+id/row11_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul10_res"
-        app:layout_constraintStart_toEndOf="@+id/mul10_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul9_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row10_res"
+        app:layout_constraintStart_toEndOf="@+id/row10_op1"
+        app:layout_constraintTop_toBottomOf="@id/row9_op2" />
 
 
     <EditText
-        android:id="@+id/mul10_res"
+        android:id="@+id/row10_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -628,12 +628,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul10_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul9_res" />
+        app:layout_constraintStart_toEndOf="@+id/row10_op2"
+        app:layout_constraintTop_toBottomOf="@id/row9_res" />
 
     <!--11th row><-->
     <EditText
-        android:id="@+id/mul11_op1"
+        android:id="@+id/row11_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -642,15 +642,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul11_op2"
+        android:nextFocusDown="@+id/row11_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="11"
-        app:layout_constraintEnd_toStartOf="@+id/mul11_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row11_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul10_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row10_op1" />
 
     <EditText
-        android:id="@+id/mul11_op2"
+        android:id="@+id/row11_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -660,13 +660,13 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul12_op1"
+        android:nextFocusDown="@+id/row12_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul11_res"
-        app:layout_constraintStart_toEndOf="@+id/mul11_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul10_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row11_res"
+        app:layout_constraintStart_toEndOf="@+id/row11_op1"
+        app:layout_constraintTop_toBottomOf="@id/row10_op2" />
     <EditText
-        android:id="@+id/mul11_res"
+        android:id="@+id/row11_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -682,12 +682,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul11_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul10_res" />
+        app:layout_constraintStart_toEndOf="@+id/row11_op2"
+        app:layout_constraintTop_toBottomOf="@id/row10_res" />
 
     <!--12th row><-->
     <EditText
-        android:id="@+id/mul12_op1"
+        android:id="@+id/row12_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -698,15 +698,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul12_op2"
+        android:nextFocusDown="@+id/row12_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="12"
-        app:layout_constraintEnd_toStartOf="@+id/mul12_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row12_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul11_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row11_op1" />
 
     <EditText
-        android:id="@+id/mul12_op2"
+        android:id="@+id/row12_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -715,17 +715,17 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul13_op1"
+        android:nextFocusDown="@+id/row13_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul12_res"
-        app:layout_constraintStart_toEndOf="@+id/mul12_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul11_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row12_res"
+        app:layout_constraintStart_toEndOf="@+id/row12_op1"
+        app:layout_constraintTop_toBottomOf="@id/row11_op2" />
 
 
     <EditText
-        android:id="@+id/mul12_res"
+        android:id="@+id/row12_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -741,12 +741,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul12_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul11_res" />
+        app:layout_constraintStart_toEndOf="@+id/row12_op2"
+        app:layout_constraintTop_toBottomOf="@id/row11_res" />
 
     <!--13th row><-->
     <EditText
-        android:id="@+id/mul13_op1"
+        android:id="@+id/row13_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -755,15 +755,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul13_op2"
+        android:nextFocusDown="@+id/row13_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="13"
-        app:layout_constraintEnd_toStartOf="@+id/mul13_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row13_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul12_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row12_op1" />
 
     <EditText
-        android:id="@+id/mul13_op2"
+        android:id="@+id/row13_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -773,13 +773,13 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul14_op1"
+        android:nextFocusDown="@+id/row14_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul13_res"
-        app:layout_constraintStart_toEndOf="@+id/mul13_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul12_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row13_res"
+        app:layout_constraintStart_toEndOf="@+id/row13_op1"
+        app:layout_constraintTop_toBottomOf="@id/row12_op2" />
     <EditText
-        android:id="@+id/mul13_res"
+        android:id="@+id/row13_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -795,12 +795,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul13_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul12_res" />
+        app:layout_constraintStart_toEndOf="@+id/row13_op2"
+        app:layout_constraintTop_toBottomOf="@id/row12_res" />
 
     <!--14th row><-->
     <EditText
-        android:id="@+id/mul14_op1"
+        android:id="@+id/row14_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -811,15 +811,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul14_op2"
+        android:nextFocusDown="@+id/row14_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="14"
-        app:layout_constraintEnd_toStartOf="@+id/mul14_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row14_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul13_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row13_op1" />
 
     <EditText
-        android:id="@+id/mul14_op2"
+        android:id="@+id/row14_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -828,16 +828,16 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul15_op1"
+        android:nextFocusDown="@+id/row15_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul14_res"
-        app:layout_constraintStart_toEndOf="@+id/mul14_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul13_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row14_res"
+        app:layout_constraintStart_toEndOf="@+id/row14_op1"
+        app:layout_constraintTop_toBottomOf="@id/row13_op2" />
 
     <EditText
-        android:id="@+id/mul14_res"
+        android:id="@+id/row14_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -853,12 +853,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul14_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul13_res" />
+        app:layout_constraintStart_toEndOf="@+id/row14_op2"
+        app:layout_constraintTop_toBottomOf="@id/row13_res" />
 
     <!--15th row><-->
     <EditText
-        android:id="@+id/mul15_op1"
+        android:id="@+id/row15_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -867,15 +867,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul15_op2"
+        android:nextFocusDown="@+id/row15_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="15"
-        app:layout_constraintEnd_toStartOf="@+id/mul15_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row15_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul14_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row14_op1" />
 
     <EditText
-        android:id="@+id/mul15_op2"
+        android:id="@+id/row15_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -885,13 +885,13 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul16_op1"
+        android:nextFocusDown="@+id/row16_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul15_res"
-        app:layout_constraintStart_toEndOf="@+id/mul15_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul14_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row15_res"
+        app:layout_constraintStart_toEndOf="@+id/row15_op1"
+        app:layout_constraintTop_toBottomOf="@id/row14_op2" />
     <EditText
-        android:id="@+id/mul15_res"
+        android:id="@+id/row15_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -907,12 +907,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul15_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul14_res" />
+        app:layout_constraintStart_toEndOf="@+id/row15_op2"
+        app:layout_constraintTop_toBottomOf="@id/row14_res" />
 
     <!--16th row><-->
     <EditText
-        android:id="@+id/mul16_op1"
+        android:id="@+id/row16_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -923,15 +923,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul16_op2"
+        android:nextFocusDown="@+id/row16_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="16"
-        app:layout_constraintEnd_toStartOf="@+id/mul16_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row16_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul15_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row15_op1" />
 
     <EditText
-        android:id="@+id/mul16_op2"
+        android:id="@+id/row16_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -940,16 +940,16 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul17_op1"
+        android:nextFocusDown="@+id/row17_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul16_res"
-        app:layout_constraintStart_toEndOf="@+id/mul16_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul15_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row16_res"
+        app:layout_constraintStart_toEndOf="@+id/row16_op1"
+        app:layout_constraintTop_toBottomOf="@id/row15_op2" />
 
     <EditText
-        android:id="@+id/mul16_res"
+        android:id="@+id/row16_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -965,12 +965,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul16_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul15_res" />
+        app:layout_constraintStart_toEndOf="@+id/row16_op2"
+        app:layout_constraintTop_toBottomOf="@id/row15_res" />
 
     <!--17th row><-->
     <EditText
-        android:id="@+id/mul17_op1"
+        android:id="@+id/row17_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -979,15 +979,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul17_op2"
+        android:nextFocusDown="@+id/row17_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="17"
-        app:layout_constraintEnd_toStartOf="@+id/mul17_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row17_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul16_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row16_op1" />
 
     <EditText
-        android:id="@+id/mul17_op2"
+        android:id="@+id/row17_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -997,13 +997,13 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul18_op1"
+        android:nextFocusDown="@+id/row18_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul17_res"
-        app:layout_constraintStart_toEndOf="@+id/mul17_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul16_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row17_res"
+        app:layout_constraintStart_toEndOf="@+id/row17_op1"
+        app:layout_constraintTop_toBottomOf="@id/row16_op2" />
     <EditText
-        android:id="@+id/mul17_res"
+        android:id="@+id/row17_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1019,12 +1019,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul17_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul16_res" />
+        app:layout_constraintStart_toEndOf="@+id/row17_op2"
+        app:layout_constraintTop_toBottomOf="@id/row16_res" />
 
     <!--18th row><-->
     <EditText
-        android:id="@+id/mul18_op1"
+        android:id="@+id/row18_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1035,15 +1035,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul18_op2"
+        android:nextFocusDown="@+id/row18_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="18"
-        app:layout_constraintEnd_toStartOf="@+id/mul18_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row18_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul17_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row17_op1" />
 
     <EditText
-        android:id="@+id/mul18_op2"
+        android:id="@+id/row18_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1052,17 +1052,17 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul19_op1"
+        android:nextFocusDown="@+id/row19_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul18_res"
-        app:layout_constraintStart_toEndOf="@+id/mul18_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul17_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row18_res"
+        app:layout_constraintStart_toEndOf="@+id/row18_op1"
+        app:layout_constraintTop_toBottomOf="@id/row17_op2" />
 
 
     <EditText
-        android:id="@+id/mul18_res"
+        android:id="@+id/row18_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1078,12 +1078,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul18_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul17_res" />
+        app:layout_constraintStart_toEndOf="@+id/row18_op2"
+        app:layout_constraintTop_toBottomOf="@id/row17_res" />
 
     <!--19th row><-->
     <EditText
-        android:id="@+id/mul19_op1"
+        android:id="@+id/row19_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1092,15 +1092,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul19_op2"
+        android:nextFocusDown="@+id/row19_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="19"
-        app:layout_constraintEnd_toStartOf="@+id/mul19_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row19_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul18_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row18_op1" />
 
     <EditText
-        android:id="@+id/mul19_op2"
+        android:id="@+id/row19_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1110,13 +1110,13 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul20_op1"
+        android:nextFocusDown="@+id/row20_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul19_res"
-        app:layout_constraintStart_toEndOf="@+id/mul19_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul18_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row19_res"
+        app:layout_constraintStart_toEndOf="@+id/row19_op1"
+        app:layout_constraintTop_toBottomOf="@id/row18_op2" />
     <EditText
-        android:id="@+id/mul19_res"
+        android:id="@+id/row19_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1132,12 +1132,12 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul19_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul18_res" />
+        app:layout_constraintStart_toEndOf="@+id/row19_op2"
+        app:layout_constraintTop_toBottomOf="@id/row18_res" />
 
     <!--20th row><-->
     <EditText
-        android:id="@+id/mul20_op1"
+        android:id="@+id/row20_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1148,15 +1148,15 @@
 
         android:background="@drawable/boarder_color_2"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul20_op2"
+        android:nextFocusDown="@+id/row20_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="20"
-        app:layout_constraintEnd_toStartOf="@+id/mul20_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row20_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul19_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row19_op1" />
 
     <EditText
-        android:id="@+id/mul20_op2"
+        android:id="@+id/row20_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1165,17 +1165,17 @@
         android:layout_marginStart="8dp"
 
         android:background="@drawable/boarder_color_2"
-        android:nextFocusDown="@+id/mul21_op1"
+        android:nextFocusDown="@+id/row21_op1"
         android:layout_marginTop="4dp"
         android:paddingBottom="@dimen/bottomPading"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul20_res"
-        app:layout_constraintStart_toEndOf="@+id/mul20_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul19_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row20_res"
+        app:layout_constraintStart_toEndOf="@+id/row20_op1"
+        app:layout_constraintTop_toBottomOf="@id/row19_op2" />
 
 
     <EditText
-        android:id="@+id/mul20_res"
+        android:id="@+id/row20_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1191,12 +1191,12 @@
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul20_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul19_res" />
+        app:layout_constraintStart_toEndOf="@+id/row20_op2"
+        app:layout_constraintTop_toBottomOf="@id/row19_res" />
 
     <!--21th row><-->
     <EditText
-        android:id="@+id/mul21_op1"
+        android:id="@+id/row21_op1"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1205,15 +1205,15 @@
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul21_op2"
+        android:nextFocusDown="@+id/row21_op2"
         android:paddingBottom="@dimen/bottomPading"
         android:hint="21"
-        app:layout_constraintEnd_toStartOf="@+id/mul21_op2"
+        app:layout_constraintEnd_toStartOf="@+id/row21_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul20_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row20_op1" />
 
     <EditText
-        android:id="@+id/mul21_op2"
+        android:id="@+id/row21_op2"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1225,11 +1225,11 @@
         android:layout_marginTop="4dp"
         android:nextFocusDown="@+id/last_row_op1"
 
-        app:layout_constraintEnd_toStartOf="@+id/mul21_res"
-        app:layout_constraintStart_toEndOf="@+id/mul21_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul20_op2" />
+        app:layout_constraintEnd_toStartOf="@+id/row21_res"
+        app:layout_constraintStart_toEndOf="@+id/row21_op1"
+        app:layout_constraintTop_toBottomOf="@id/row20_op2" />
     <EditText
-        android:id="@+id/mul21_res"
+        android:id="@+id/row21_res"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -1245,8 +1245,8 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mul21_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul20_res" />
+        app:layout_constraintStart_toEndOf="@+id/row21_op2"
+        app:layout_constraintTop_toBottomOf="@id/row20_res" />
 
     <!--last row><-->
     <EditText
@@ -1264,7 +1264,7 @@
         android:hint="22"
         app:layout_constraintEnd_toStartOf="@+id/last_row_op2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mul21_op1" />
+        app:layout_constraintTop_toBottomOf="@id/row21_op1" />
 
     <EditText
         android:id="@+id/last_row_op2"
@@ -1277,11 +1277,11 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:layout_marginTop="4dp"
-        android:nextFocusDown="@+id/mul1_op1"
+        android:nextFocusDown="@+id/row1_op1"
 
         app:layout_constraintEnd_toStartOf="@+id/last_row_res"
         app:layout_constraintStart_toEndOf="@+id/last_row_op1"
-        app:layout_constraintTop_toBottomOf="@id/mul21_op2" />
+        app:layout_constraintTop_toBottomOf="@id/row21_op2" />
     <EditText
         android:id="@+id/last_row_res"
         android:layout_width="0dp"
@@ -1300,7 +1300,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/last_row_op2"
-        app:layout_constraintTop_toBottomOf="@id/mul21_res" />
+        app:layout_constraintTop_toBottomOf="@id/row21_res" />
     <!--Result row><-->
 
     <EditText
