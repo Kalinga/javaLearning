@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = null;
         if (name.equals("SETTINGS")) {
             Log.v(TAG, "SETTINGS");
-            intent = new Intent(this, ViewListContents.class);
+            intent = new Intent(this, RateChart.class);
         }
         else if (name.equals("CALCULATOR")) {
             Log.v(TAG, "CALCULATOR");
