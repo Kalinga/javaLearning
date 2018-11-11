@@ -8,10 +8,9 @@
 
     android:focusableInTouchMode="true"
     tools:context=".RateChart">
-
-    <!--1st row><-->
-    <EditText
-        android:id="@+id/row1_op1"
+    <!--label><-->
+    <TextView
+        android:id="@+id/label_fat"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
 
@@ -22,15 +21,16 @@
         android:layout_marginTop="2dp"
 
         android:paddingBottom="@dimen/bottomPading"
-        android:nextFocusDown="@+id/row1_op2"
-        android:hint="1"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="FAT"
 
-        app:layout_constraintEnd_toStartOf="@+id/row1_op2"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/label_lac"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/row1_op2"
+    <TextView
+        android:id="@+id/label_lac"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -40,15 +40,93 @@
         android:layout_marginTop="2dp"
 
         android:paddingBottom="@dimen/bottomPading"
-        android:nextFocusDown="@+id/row2_op1"
-        android:hint="6"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="LACT"
 
-        app:layout_constraintEnd_toStartOf="@+id/row1_res"
-        app:layout_constraintStart_toEndOf="@+id/row1_op1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/label_snf"
+        app:layout_constraintStart_toEndOf="@+id/label_fat"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/label_snf"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+
+        android:text="SNF"
+        android:paddingBottom="@dimen/bottomPading"
+        android:textColor="@android:color/holo_red_dark"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/label_price"
+        app:layout_constraintStart_toEndOf="@+id/label_lac"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+
+        android:text="PRICE"
+        android:paddingBottom="@dimen/bottomPading"
+        android:textColor="@android:color/holo_red_dark"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_snf"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--1st row><-->
     <EditText
-        android:id="@+id/row1_res"
+        android:id="@+id/row1_fat"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:maxLength="3"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/row1_lac"
+
+        app:layout_constraintEnd_toStartOf="@+id/row1_lac"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_fat" />
+
+    <EditText
+        android:id="@+id/row1_lac"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:maxLength="2"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/row1_quantity"
+
+
+        app:layout_constraintEnd_toStartOf="@+id/row1_snf"
+        app:layout_constraintStart_toEndOf="@+id/row1_fat"
+        app:layout_constraintTop_toBottomOf="@+id/label_lac" />
+
+    <EditText
+        android:id="@+id/row1_snf"
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
@@ -58,14 +136,74 @@
         android:layout_marginTop="2dp"
 
         android:focusable="false"
-        android:hint="1 x 6 = 6"
+        android:paddingBottom="@dimen/bottomPading"
+        android:textColor="@android:color/holo_red_dark"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/row1_price"
+        app:layout_constraintStart_toEndOf="@+id/row1_lac"
+        app:layout_constraintTop_toBottomOf="@+id/label_snf" />
+
+    <EditText
+        android:id="@+id/row1_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+
+        android:focusable="false"
+        android:maxLength="5"
         android:paddingBottom="@dimen/bottomPading"
         android:textColor="@android:color/holo_red_dark"
 
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/row1_op2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/row1_snf"
+        app:layout_constraintTop_toBottomOf="@+id/label_price" />
+
+    <EditText
+        android:id="@+id/row1_quantity"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+
+        android:focusable="true"
+        android:hint="quantity"
+        android:maxLength="5"
+        android:paddingBottom="@dimen/bottomPading"
+        android:nextFocusDown="@+id/row1_fat"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/row1_price"
+        app:layout_constraintTop_toBottomOf="@+id/row1_price" />
+
+    <EditText
+        android:id="@+id/total_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:focusable="false"
+        android:hint="Total"
+        android:paddingBottom="@dimen/bottomPading"
+        android:textColor="@android:color/holo_red_dark"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/row1_price"
+        app:layout_constraintTop_toBottomOf="@+id/row1_quantity" />
 
 
 </android.support.constraint.ConstraintLayout>
