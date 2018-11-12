@@ -16,14 +16,16 @@ public class MainActivity extends AppCompatActivity {
         String name = ((Button)view).getText().toString();
         Log.v(TAG, name);
         Intent intent = null;
-        if (name.equals("SETTINGS")) {
-            Log.v(TAG, "SETTINGS");
+        if (name.equals("RATE CHART")) {
+            Log.v(TAG, "RATE CHART");
             intent = new Intent(this, RateChart.class);
-        }
-        else if (name.equals("CALCULATOR")) {
+        } else if (name.equals("CALCULATOR")) {
             Log.v(TAG, "CALCULATOR");
             intent = new Intent(this, Calculator.class);
-        }else {
+        } else if (name.equals("SETTINGS")) {
+            Log.v(TAG, "SETTINGS");
+            intent = new Intent(this, GlobalSettingsActivity.class);
+        } else {
             Log.v(TAG, "else");
             intent = new Intent(this, SiteDisplay.class);
             }

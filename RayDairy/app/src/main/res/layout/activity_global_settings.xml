@@ -5,5 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GlobalSettingsActivity">
+    <!--label><-->
+    <TextView
+        android:id="@+id/label_base_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+
+        android:paddingBottom="@dimen/bottomPading"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="Price for \n4.0 x 9.0"
+        android:textSize="12sp"
+
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/base_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+        android:maxLength="5"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
+        android:nextFocusDown="@id/save"
+
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintStart_toEndOf="@+id/label_base_price"
+        app:layout_constraintEnd_toStartOf="@id/save"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="2dp"
+
+        android:onClick="buttonClickHandler"
+        android:text="@string/save"
+        android:textSize="12sp"
+        android:visibility="visible"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/base_price"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

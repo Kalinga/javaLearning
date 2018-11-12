@@ -1,6 +1,9 @@
 package com.raydairy;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -59,13 +62,19 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
     }
 
     private String calculatePrice(float fat, float snf) {
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        float price = prefs.getFloat("price", 0.0f);
+
+        Log.v(TAG, Float.toString(price));
+
         // Base fat 4.0 x 9.00 = 27.00, fat unit step 25paise
         // Base snf 9.00,  unit step 30 paise
         float BASE_FAT = 4.0f;
         float BASE_SNF = 9.0f;
         float UNIT_FAT_PRICE = 0.25f;
         float UNIT_SNF_PRICE = 0.30f;
-        float BASE_PRICE = 27.00f;
+        float BASE_PRICE = price;
 
         float fat_diff = fat - BASE_FAT;
         float snf_diff = snf - BASE_SNF;
@@ -81,6 +90,7 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         EditText ed = findViewById(id);
         ed.setOnFocusChangeListener(this);
     }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,8 +131,9 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
                 if( R.id.row1_quantity ==  v.getId()) {
                     float quanity = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
                     float total_price = Float.parseFloat(((EditText) findViewById(R.id.row1_price)).getText().toString()) * quanity;
-                    total_price = Math.round(total_price);
-                    ((EditText) findViewById(R.id.total_price)).setText(Float.toString(total_price));
+                    double floor_price = total_price;
+                    floor_price = Math.floor(floor_price);
+                    ((EditText) findViewById(R.id.total_price)).setText(Double.toString(floor_price));
                 }
             } catch (java.lang.NumberFormatException e) {
                 Log.v(TAG, "NumberFormatException ");

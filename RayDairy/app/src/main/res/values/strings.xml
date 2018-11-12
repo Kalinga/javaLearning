@@ -3,8 +3,11 @@
     <string name="site_42">BAYALISHI BATI</string>
     <string name="site_SS">SENAPATI SAHI</string>
     <string name="site_SP">SORISIA PADA</string>
+    <string name="rate_chart">RATE CHART</string>
     <string name="global_Settings">SETTINGS</string>
     <string name="calc">CALCULATOR</string>
+
+    <string name="save">Save</string>
 
     <string name="title_activity_global_settings">Settings</string>
 

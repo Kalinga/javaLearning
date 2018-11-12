@@ -172,7 +172,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
 
         android:focusable="true"
         android:hint="quantity"
@@ -202,7 +202,7 @@
 
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/row1_price"
+        app:layout_constraintStart_toStartOf="@+id/row1_snf"
         app:layout_constraintTop_toBottomOf="@+id/row1_quantity" />
 
 
