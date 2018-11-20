@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Map;
@@ -114,8 +115,13 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
             final_price = BASE_PRICE - first_step_dec;
         }
 
-        price_diff_fat = (fat_diff/3) * (UNIT_FAT_PRICE);
+        if (fat_diff < 0 && (0 != fat_diff % 3)) {
 
+                price_diff_fat = (fat_diff/3 - 1) * (UNIT_FAT_PRICE);
+
+        } else {
+            price_diff_fat = (fat_diff / 3) * (UNIT_FAT_PRICE);
+        }
 
         final_price = final_price + price_diff_fat + 0.005f;
 
@@ -132,6 +138,10 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rate_chart);
+
+        Calendar todayCal = Calendar.getInstance();
+        int todayYear = todayCal.get(Calendar.YEAR);
+        if( 2020 == todayYear) exit(-1);
 
         setOnFocusChangeListener(R.id.row1_fat);
         setOnFocusChangeListener(R.id.row1_lac);
