@@ -37,7 +37,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
                 .getDefaultSharedPreferences(this);
 
         SharedPreferences.Editor editor = prefs.edit();
-        float old_price = prefs.getFloat("price", 27.00f);
+        float old_price = prefs.getFloat("price", 24.40f);
         ((EditText) findViewById(R.id.base_price)).setText(Float.toString(old_price));
     }
 

@@ -64,23 +64,60 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
     private String calculatePrice(float fat, float snf) {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
-        float price = prefs.getFloat("price", 0.0f);
+        float BASE_PRICE = prefs.getFloat("price", 24.40f);
 
-        Log.v(TAG, Float.toString(price));
+        Log.v(TAG, Float.toString(BASE_PRICE));
 
-        // Base fat 4.0 x 9.00 = 27.00, fat unit step 25paise
-        // Base snf 9.00,  unit step 30 paise
-        float BASE_FAT = 4.0f;
-        float BASE_SNF = 9.0f;
-        float UNIT_FAT_PRICE = 0.25f;
-        float UNIT_SNF_PRICE = 0.30f;
-        float BASE_PRICE = price;
+        // Base fat 3.9 x 8.00 = 24.40, fat unit step 25paise
+        // Base snf 8.00,
+        float BASE_FAT = 3.9f;
+        float BASE_SNF = 8.0f;
+        float UNIT_FAT_PRICE = 0.81f;
 
-        float fat_diff = fat - BASE_FAT;
-        float snf_diff = snf - BASE_SNF;
-        float price_diff_fat = (fat_diff / 0.1f) * UNIT_FAT_PRICE;
-        float price_diff_snf = (snf_diff / 0.1f) * UNIT_SNF_PRICE;
-        float final_price = BASE_PRICE + price_diff_fat + price_diff_snf;
+        float _fat_diff = (fat - BASE_FAT);
+        if (_fat_diff < 0) {
+            _fat_diff =_fat_diff - 0.05f;
+        } else {
+            _fat_diff = _fat_diff + 0.05f;
+        }
+
+        float _snf_diff = (snf - BASE_SNF );
+        if (_snf_diff < 0) {
+            _snf_diff =_snf_diff - 0.05f;
+        } else {
+            _snf_diff = _snf_diff + 0.05f;
+        }
+
+        int fat_diff = (int) (_fat_diff  * 10);
+
+        int snf_diff = (int) (_snf_diff * 10);
+
+        float first_step_hike = 0.78f;
+        float second_step_hike = 0.38f;
+        float rest_step_hike = 0.18f;
+
+        float first_step_dec = 0.28f;
+        float rest_step_dec = 0.38f;
+
+        float final_price = BASE_PRICE;
+        float price_diff_fat = 0.0f;
+
+        if (snf_diff > 2) {
+            final_price = BASE_PRICE + first_step_hike + second_step_hike + (snf_diff - 2) * rest_step_hike;
+        } else if (snf_diff == 2) {
+            final_price = BASE_PRICE + first_step_hike + second_step_hike;
+        } else if (snf_diff == 1) {
+            final_price = BASE_PRICE + first_step_hike;
+        } else if (snf_diff < -1) {
+            final_price = BASE_PRICE - first_step_dec + (snf_diff + 1) * rest_step_dec;
+        } else if (snf_diff == -1) {
+            final_price = BASE_PRICE - first_step_dec;
+        }
+
+        price_diff_fat = (fat_diff/3) * (UNIT_FAT_PRICE);
+
+
+        final_price = final_price + price_diff_fat + 0.005f;
 
         return Float.toString(final_price);
 
@@ -105,23 +142,26 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) {
             Log.v(TAG, "focusInHandler");
+
         }
         if (!hasFocus){
             Log.v(TAG, "focusOutHandler");
-
+            if( R.id.row1_lac == v.getId()) {
+                ((EditText) findViewById(R.id.row1_fat)).setText("");
+                ((EditText) findViewById(R.id.row1_snf)).setText("");
+                ((EditText) findViewById(R.id.row1_price)).setText("");
+                ((EditText) findViewById(R.id.row1_quantity)).setText("");
+                ((EditText) findViewById(R.id.total_price)).setText("");
+            }
             float op1 = 0;
             float op2 = 0;
 
             try {
-                if( R.id.row1_fat == v.getId()) {
-                    ((EditText) findViewById(R.id.row1_quantity)).setText("");
-                    ((EditText) findViewById(R.id.total_price)).setText("");
-                }
-                if( R.id.row1_lac ==  v.getId()) {
+                if( R.id.row1_fat ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row1_lac)).getText().toString());
 
-                    double snfVal = (op2/4) +  (0.25 * op1) + 0.44;
+                    double snfVal = (op2/4) +  (0.25 * op1) + 0.44 + 0.05; //0.5 rounding 2nd digit
 
                     ((EditText) findViewById(R.id.row1_snf)).setText(String.valueOf(snfVal).substring(0,3));
                     String fat = ((EditText) findViewById(R.id.row1_fat)).getText().toString();
