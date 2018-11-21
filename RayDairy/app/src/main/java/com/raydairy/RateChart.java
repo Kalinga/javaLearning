@@ -69,10 +69,11 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
 
         Log.v(TAG, Float.toString(BASE_PRICE));
 
-        // Base fat 3.9 x 8.00 = 24.40, fat unit step 25paise
+        // Base fat 3.9 x 8.00 = 24.40,
         // Base snf 8.00,
         float BASE_FAT = 3.9f;
         float BASE_SNF = 8.0f;
+        float LOW_FAT_PENALTY = 0.40f;
         float UNIT_FAT_PRICE = 0.81f;
 
         float _fat_diff = (fat - BASE_FAT);
@@ -122,6 +123,9 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         } else {
             price_diff_fat = (fat_diff / 3) * (UNIT_FAT_PRICE);
         }
+
+        if (fat_diff < 0 )
+            price_diff_fat = price_diff_fat - LOW_FAT_PENALTY;
 
         final_price = final_price + price_diff_fat + 0.005f;
 
