@@ -8,6 +8,7 @@
     <string name="calc">CALCULATOR</string>
 
     <string name="save">Save</string>
+    <string name="reset_db">ResetDB</string>
 
     <string name="title_activity_global_settings">Settings</string>
 

@@ -14,10 +14,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.File;
+import java.io.IOException;
+
 public class GlobalSettingsActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     private static final String TAG = "RAYActivity";
+    public static final String DATABASE_NAME = "users.db";
+
     private DatabaseHelper dbh = null;
+
     private void setOnFocusChangeListener(int id) {
         EditText ed = findViewById(id);
         ed.setOnFocusChangeListener(this);
@@ -51,6 +57,22 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
         }
     }
+
+    public void resetDBbuttonClickHandler(View view) {
+        String DB_PATH = getApplicationContext().getDatabasePath(DATABASE_NAME).getPath();
+        File file = new File(DB_PATH );
+        if (file.exists()) {
+                boolean deleted = file.delete();
+                Log.v(TAG, "Database deleted: " + String.valueOf(deleted));
+        }
+
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("db_created", false);
+        editor.commit();
+    }
+
 
     private void savePrice() {
         try {

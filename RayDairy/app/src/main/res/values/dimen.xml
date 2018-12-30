@@ -4,4 +4,6 @@
     <dimen name="layout_width">0dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="bottomPading">0dp</dimen>
+    <dimen name="regular_top_margin">8dp</dimen>
+
 </resources>

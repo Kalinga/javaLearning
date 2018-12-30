@@ -2,28 +2,37 @@ package com.raydairy;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.database.CharArrayBuffer;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Formatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.widget.Toast.LENGTH_LONG;
 import static java.lang.System.*;
 
 public class RateChart extends AppCompatActivity implements View.OnFocusChangeListener {
     private static final String TAG = "RAYActivity";
     Map priceList = populatePriceList();
+    DatabaseHelper dbHelper = new DatabaseHelper(this);
+
 
     private Map<Object,Map> populatePriceList() {
         Map price = new HashMap();
@@ -147,6 +156,45 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         int todayYear = todayCal.get(Calendar.YEAR);
         if( 2020 == todayYear) exit(-1);
 
+        //row1_today
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:MM:SS");
+        String formattedDate = df.format(c);
+        ((EditText) findViewById(R.id.row1_today)).setText(formattedDate);
+
+        // DB Prepare
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        boolean is_db_created = prefs.getBoolean("db_created", false);
+        //DatabaseHelper dbHelper = new DatabaseHelper(this);
+        if (!is_db_created) {
+            // initialise db contents
+            dbHelper.addCustomer(9, "Kalinga Ray");
+            dbHelper.addCustomer(99, "Test");
+            dbHelper.addCustomer(999, "Ray Diary");
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("db_created", true);
+            editor.commit();
+        } else {
+            Log.v(TAG, "db_created");
+
+            //Cursor crsr = dbHelper.getDataById(9);
+            Cursor crsr = dbHelper.getTableContents();
+            int colId = crsr.getColumnIndex("ID");
+            int colName = crsr.getColumnIndex("NAME");
+            if( crsr != null && crsr.moveToFirst() ) {
+                do {
+                    int id = crsr.getInt(colId);
+                    String name = crsr.getString(colName);
+                    Log.v(TAG, String.valueOf(id));
+                    Log.v(TAG, name);
+                } while (crsr.moveToNext());
+                crsr.close();
+            }
+        }
+
+        setOnFocusChangeListener(R.id.val_id);
         setOnFocusChangeListener(R.id.row1_fat);
         setOnFocusChangeListener(R.id.row1_lac);
         setOnFocusChangeListener(R.id.row1_quantity);
@@ -160,13 +208,31 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         }
         if (!hasFocus){
             Log.v(TAG, "focusOutHandler");
-            if( R.id.row1_lac == v.getId()) {
-                ((EditText) findViewById(R.id.row1_fat)).setText("");
-                ((EditText) findViewById(R.id.row1_snf)).setText("");
-                ((EditText) findViewById(R.id.row1_price)).setText("");
-                ((EditText) findViewById(R.id.row1_quantity)).setText("");
-                ((EditText) findViewById(R.id.total_price)).setText("");
+            if( R.id.val_id == v.getId()) {
+                Log.v(TAG, "Customer id Focus out");
+                int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
+
+                Cursor crsr = dbHelper.getDataById(id);
+                int colName = crsr.getColumnIndex("NAME");
+                Log.v(TAG, String.valueOf(crsr.getCount()));
+
+                if( crsr != null && crsr.moveToFirst() ) {
+                        String name = crsr.getString(colName);
+                        ((EditText) findViewById(R.id.value_name)).setText(name);
+                        Log.v(TAG, String.valueOf(id));
+                        Log.v(TAG, name);
+                } else {
+                    ((EditText) findViewById(R.id.value_name)).setText("");
+                }
+
+
+                crsr.close();
             }
+
+            if( R.id.row1_lac == v.getId()) {
+
+            }
+
             float op1 = 0;
             float op2 = 0;
 
@@ -194,4 +260,33 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
             }
         } // focus out
     } // onFocusChange
+
+    public void buttonClickHandler(View view) {
+        Log.v(TAG, "buttonClickHandler ");
+
+        int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
+        String date = ((EditText) findViewById(R.id.row1_today)).getText().toString();
+        int lact = Integer.parseInt(((EditText) findViewById(R.id.row1_lac)).getText().toString());
+        float fat = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
+        float quant = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
+        float total = Float.parseFloat(((EditText) findViewById(R.id.total_price)).getText().toString());
+
+        boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, total);
+        if (insert) {
+            ((EditText) findViewById(R.id.val_id)).setText("");
+            ((EditText) findViewById(R.id.value_name)).setText("");
+            ((EditText) findViewById(R.id.row1_lac)).setText("");
+            ((EditText) findViewById(R.id.row1_fat)).setText("");
+            ((EditText) findViewById(R.id.row1_snf)).setText("");
+            ((EditText) findViewById(R.id.row1_price)).setText("");
+            ((EditText) findViewById(R.id.row1_quantity)).setText("");
+            ((EditText) findViewById(R.id.total_price)).setText("");
+        } else {
+            Toast toast=Toast.makeText(getApplicationContext(),"PROBLEM DURING SAVING DATA",Toast.LENGTH_SHORT);
+            //toast.setMargin(00,0);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+    }
 }
