@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,8 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
     private static final String TAG = "RAYActivity";
     public static final String DATABASE_NAME = "users.db";
 
-    private DatabaseHelper dbh = null;
+    DatabaseHelper dbHelper = new DatabaseHelper(this);
+
 
     private void setOnFocusChangeListener(int id) {
         EditText ed = findViewById(id);
@@ -56,6 +59,48 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
             savePrice();
 
         }
+    }
+
+    public String space(int n) {
+        StringBuilder str = new StringBuilder("");
+        for(int i =0; i<n; ++i)
+            str.append(" ");
+
+        return str.toString();
+    }
+
+    public void listAllCustomer(View view) {
+        String buttonText = ((Button)view).getText().toString();
+        if (buttonText == "HIDE") {
+            ((Button)(findViewById(R.id.list_all_cust))).setText("CUSTOMERS");
+            (findViewById(R.id.all_customer_view)).setVisibility(View.INVISIBLE);
+        } else {
+
+            (findViewById(R.id.all_customer_view)).setVisibility(View.VISIBLE);
+            ((Button)(findViewById(R.id.list_all_cust))).setText("HIDE");
+
+            Cursor crsr = dbHelper.getAllCustomer();
+            String details = "";
+
+            int count = 1;
+            if( crsr != null && crsr.moveToFirst() ) {
+                do {
+                    String id = crsr.getString(crsr.getColumnIndex("ID"));
+                    String name = crsr.getString(crsr.getColumnIndex("NAME"));
+
+                    String record = id + space(6) + name;
+                    details += record + "\n";
+                    ++count;
+                } while (crsr.moveToNext());
+            }
+            crsr.close();
+
+            ((TextView)(findViewById(R.id.all_customer_view))).setText(details);
+        }
+    }
+
+    public void resetTrasactions(View view) {
+        dbHelper.resetTransaction();
     }
 
     public void resetDBbuttonClickHandler(View view) {

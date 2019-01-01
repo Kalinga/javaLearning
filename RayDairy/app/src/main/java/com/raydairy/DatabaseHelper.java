@@ -132,4 +132,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_CUSTOMER, null);
         return data;
     }
+
+    public Cursor getTransactionById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_TRANS + " WHERE ID=?",
+                new String[]{Integer.toString(id)});
+        return data;
+    }
+
+    public Cursor getGrandTotalById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID=?",
+                new String[]{Integer.toString(id)});
+        return data;
+    }
+
+    public Cursor getGrandTotalBySite(int siteId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = null;
+        switch (siteId) {
+            case 1:
+            data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 1 AND 99", null);
+                break;
+            case 2:
+                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 100 AND 199", null);
+                break;
+            case 3:
+                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 200 AND 299", null);
+                break;
+            case 4:
+                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 300 AND 399", null);
+                break;
+        }
+        return data;
+    }
+
+    public Cursor getAllCustomer() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_CUSTOMER, null);
+        return data;
+    }
+
+    public void resetTransaction() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "+ TABLE_TRANS);
+    }
+
 }

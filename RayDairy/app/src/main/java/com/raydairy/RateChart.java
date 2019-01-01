@@ -263,30 +263,35 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
 
     public void buttonClickHandler(View view) {
         Log.v(TAG, "buttonClickHandler ");
+        try {
+            int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
+            String date = ((EditText) findViewById(R.id.row1_today)).getText().toString();
+            int lact = Integer.parseInt(((EditText) findViewById(R.id.row1_lac)).getText().toString());
+            float fat = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
+            float quant = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
+            float total = Float.parseFloat(((EditText) findViewById(R.id.total_price)).getText().toString());
 
-        int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
-        String date = ((EditText) findViewById(R.id.row1_today)).getText().toString();
-        int lact = Integer.parseInt(((EditText) findViewById(R.id.row1_lac)).getText().toString());
-        float fat = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
-        float quant = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
-        float total = Float.parseFloat(((EditText) findViewById(R.id.total_price)).getText().toString());
-
-        boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, total);
-        if (insert) {
-            ((EditText) findViewById(R.id.val_id)).setText("");
-            ((EditText) findViewById(R.id.value_name)).setText("");
-            ((EditText) findViewById(R.id.row1_lac)).setText("");
-            ((EditText) findViewById(R.id.row1_fat)).setText("");
-            ((EditText) findViewById(R.id.row1_snf)).setText("");
-            ((EditText) findViewById(R.id.row1_price)).setText("");
-            ((EditText) findViewById(R.id.row1_quantity)).setText("");
-            ((EditText) findViewById(R.id.total_price)).setText("");
-        } else {
-            Toast toast=Toast.makeText(getApplicationContext(),"PROBLEM DURING SAVING DATA",Toast.LENGTH_SHORT);
-            //toast.setMargin(00,0);
-            toast.setDuration(Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, total);
+            if (insert) {
+                ((EditText) findViewById(R.id.val_id)).setText("");
+                ((EditText) findViewById(R.id.value_name)).setText("");
+                ((EditText) findViewById(R.id.row1_lac)).setText("");
+                ((EditText) findViewById(R.id.row1_fat)).setText("");
+                ((EditText) findViewById(R.id.row1_snf)).setText("");
+                ((EditText) findViewById(R.id.row1_price)).setText("");
+                ((EditText) findViewById(R.id.row1_quantity)).setText("");
+                ((EditText) findViewById(R.id.total_price)).setText("");
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "PROBLEM DURING SAVING DATA", Toast.LENGTH_SHORT);
+                //toast.setMargin(00,0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+        }
+        catch (java.lang.NumberFormatException e) {
+                    Log.v(TAG, "NumberFormatException ");
         }
     }
 }

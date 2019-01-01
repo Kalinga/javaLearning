@@ -10,104 +10,84 @@
 
     <Button
         android:id="@+id/b_bati"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_weight="1"
         android:height="100dp"
         android:onClick="buttonClickHandler"
         android:text="@string/site_42"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/s_sahi"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/s_sahi"
-        android:layout_width="wrap_content"
+        android:id="@+id/b_sainsain"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:height="100dp"
+        android:onClick="buttonClickHandler"
+        android:text="@string/site_SSN"
+        android:textSize="18sp"
+        android:visibility="visible"
+
+        app:layout_constraintStart_toEndOf="@id/b_bati"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/s_sahi"
+        android:text="@string/site_SS"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:height="100dp"
-        android:onClick="buttonClickHandler"
-        android:text="@string/site_SS"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/s_pada"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_bati"
-        app:layout_constraintTop_toBottomOf="@+id/b_bati" />
+        android:layout_marginTop="8dp"
 
-    <Button
-        android:id="@+id/rate_chart"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_weight="1"
-        android:width="150dp"
         android:height="100dp"
         android:onClick="buttonClickHandler"
-        android:text="@string/rate_chart"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_bati"
+        app:layout_constraintEnd_toEndOf="@+id/b_bati" />
+
     <Button
         android:id="@+id/s_pada"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="1"
-        android:height="100dp"
-        android:onClick="buttonClickHandler"
         android:text="@string/site_SP"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/calc"
-        app:layout_constraintEnd_toStartOf="@+id/s_sahi"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/s_sahi" />
-    
-    <Button
-        android:id="@+id/g_settings"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+
         android:height="100dp"
         android:onClick="buttonClickHandler"
-        android:text="@string/global_Settings"
         android:textSize="18sp"
         android:visibility="visible"
 
-        app:layout_constraintBottom_toTopOf="@+id/rate_chart"
-        app:layout_constraintStart_toEndOf="@+id/s_pada"
+        app:layout_constraintTop_toBottomOf="@+id/b_sainsain"
+        app:layout_constraintStart_toStartOf="@+id/b_sainsain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toBottomOf="@+id/s_sahi" />
+        />
 
     <Button
         android:id="@+id/calc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
@@ -116,9 +96,47 @@
         android:text="@string/calc"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/rate_chart"
-        app:layout_constraintEnd_toEndOf="@+id/s_pada"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rate_chart" />
+
+        app:layout_constraintTop_toBottomOf="@+id/s_sahi"
+        app:layout_constraintEnd_toEndOf="@+id/s_sahi"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/rate_chart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:height="100dp"
+
+        android:onClick="buttonClickHandler"
+        android:text="@string/rate_chart"
+        android:textSize="18sp"
+        android:visibility="visible"
+
+        app:layout_constraintTop_toBottomOf="@+id/s_pada"
+        app:layout_constraintStart_toStartOf="@+id/s_pada"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/g_settings"
+        android:text="@string/global_Settings"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:height="100dp"
+        android:onClick="buttonClickHandler"
+        android:textSize="18sp"
+        android:visibility="visible"
+
+        app:layout_constraintTop_toBottomOf="@+id/rate_chart"
+        app:layout_constraintStart_toStartOf="@+id/rate_chart"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

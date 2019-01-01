@@ -14,24 +14,42 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:height="50dp"
+        android:height="30dp"
         android:textAllCaps="true"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="36sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="monospace"
 
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_cust"
+        android:text="NEW CUSTOMER"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:height="@dimen/height"
+
+        android:onClick="buttonClickHandler"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/site_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <EditText
         android:id="@+id/cust_id"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/height"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/regular_top_margin"
 
         android:focusable="true"
@@ -40,7 +58,7 @@
         android:paddingBottom="@dimen/bottomPading"
 
         app:layout_constraintEnd_toStartOf="@+id/report"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/site_id"
         app:layout_constraintTop_toBottomOf="@+id/site_id" />
 
     <Button
@@ -52,22 +70,38 @@
         android:layout_marginTop="8dp"
         android:text="REPORT"
         android:textStyle="bold"
+        android:height="50dp"
 
         android:onClick="buttonClickHandler"
         app:layout_constraintStart_toEndOf="@+id/cust_id"
         app:layout_constraintTop_toBottomOf="@+id/site_id" />
 
-    <EditText
-        android:id="@+id/detailed_report"
+    <Button
+        android:id="@+id/summary"
+        android:text="SUMMARY"
+
         android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:height="@dimen/height"
+
+        android:onClick="buttonClickHandler"
+        app:layout_constraintStart_toEndOf="@+id/report"
+        app:layout_constraintTop_toBottomOf="@+id/site_id"/>
+
+    <TextView
+        android:id="@+id/detailed_report"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
 
-        android:height="50dp"
         android:hint="Detailed report..."
 
         android:textColor="@android:color/holo_red_dark"
@@ -75,8 +109,49 @@
         android:textStyle="bold"
         android:typeface="monospace"
         android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/cust_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_id" />
+        />
+
+    <EditText
+        android:id="@+id/new_cust_id"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="@dimen/regular_top_margin"
+
+        android:focusable="true"
+        android:visibility="invisible"
+        android:hint="New Id"
+        android:maxLength="5"
+        android:paddingBottom="@dimen/bottomPading"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_report" />
+
+    <EditText
+        android:id="@+id/new_cust_name"
+        android:hint="Customer Name"
+
+        android:layout_width="100dp"
+        android:layout_height="@dimen/height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="@dimen/regular_top_margin"
+
+        android:focusable="true"
+        android:paddingBottom="@dimen/bottomPading"
+        android:visibility="invisible"
+        android:inputType="text"
+
+        app:layout_constraintStart_toEndOf="@+id/new_cust_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_report" />
 
 </android.support.constraint.ConstraintLayout>
