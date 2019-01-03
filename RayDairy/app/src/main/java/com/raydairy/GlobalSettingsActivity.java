@@ -19,6 +19,28 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 
+public class ResetTransactionDialogFragment extends DialogFragment {
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Are you Sure to DELETE All data for last 10 days? )
+               .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // Delete all Data
+                       dbHelper.resetTransaction();
+                   }
+               })
+               .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User cancelled the dialog
+                   }
+               });
+        // Create the AlertDialog object and return it
+        return builder.create();
+    }
+}
+
 public class GlobalSettingsActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     private static final String TAG = "RAYActivity";
@@ -57,7 +79,6 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         if (name.equals("Save")) {
             Log.v(TAG, "Save Price");
             savePrice();
-
         }
     }
 
@@ -100,7 +121,8 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
     }
 
     public void resetTrasactions(View view) {
-        dbHelper.resetTransaction();
+        ResetTransactionDialogFragment dialog = new ResetTransactionDialogFragment();
+        dialog.show();
     }
 
     public void resetDBbuttonClickHandler(View view) {
