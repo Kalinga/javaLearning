@@ -45,6 +45,7 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
         Log.v(TAG, "buttonClickHandler ");
         int id = -1;
         String name = "INVALID";
+        Cursor crsr = null;
 
         switch(view.getId()){
             case R.id.add_cust:
@@ -81,7 +82,7 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
             case R.id.report:
                 id = Integer.parseInt(((EditText) findViewById(R.id.cust_id)).getText().toString());
-                Cursor crsr = dbHelper.getDataById(id);
+                crsr = dbHelper.getDataById(id);
                 int colName = crsr.getColumnIndex("NAME");
                 Log.v(TAG, String.valueOf(crsr.getCount()));
 
@@ -132,16 +133,54 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 break;
 
             case R.id.summary:
-                (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
-                (findViewById(R.id.report)).setVisibility(View.VISIBLE);
-                (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
+                int site_id = 0,
+                switch(siteName) {
+                    case R.string.site_42:
+                        site_id = 1;
+                        break;
+                    case R.string.site_SSN :
+                        site_id = 2;
+                        break;
+                    case R.string.site_SS :
+                        site_id = 3;
+                        break;
+                    case R.string.site_SP :
+                        site_id = 4;
+                        break;    
+                }
+                
+                String button_text = ((Button) findViewById(R.id.summary)).getText().toString();
+                if (button_text == "EXIT") {
+                    (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
+                    (findViewById(R.id.report)).setVisibility(View.VISIBLE);
+                    (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
+    
+                    (findViewById(R.id.new_cust_id)).setVisibility(View.INVISIBLE);
+                    (findViewById(R.id.new_cust_name)).setVisibility(View.INVISIBLE);
+    
+                    ((Button) findViewById(R.id.summary)).setText("SUMMARY");
+                    ((Button) findViewById(R.id.add_cust)).setText("NEW CUSTOMER");
+                } else if (button_text == "SUMMARY") {   
+                    ((Button) findViewById(R.id.summary)).setText("HIDE SUMMARY");
 
-                (findViewById(R.id.new_cust_id)).setVisibility(View.INVISIBLE);
-                (findViewById(R.id.new_cust_name)).setVisibility(View.INVISIBLE);
+                    crsr = dbHelper.getGrandTotalBySite(site_id);
+                    if( crsr != null && crsr.moveToFirst() ) {
+                    do {
+                        Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                        String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
+                        String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                        details += "\n TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
+                        details += "\n TOTAL MILK Collected:\t" + sum_quant + "\n";
+                    } while (crsr.moveToNext());
 
-                ((Button) findViewById(R.id.summary)).setText("SUMMARY");
-                ((Button) findViewById(R.id.add_cust)).setText("NEW CUSTOMER");
+                crsr.close();
+                ((TextView)findViewById(R.id.detailed_report)).setText(details);
+                } else {
+                    ((Button) findViewById(R.id.summary)).setText("SUMMARY");
+                    ((TextView)findViewById(R.id.detailed_report)).setText("");                        
+                }
 
+                
                 // Summary
                 break;
         }
