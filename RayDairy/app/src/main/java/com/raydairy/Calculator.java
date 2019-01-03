@@ -217,112 +217,112 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
                 if(R.id.row1_op2 ==  v.getId() || R.id.row1_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row1_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row1_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row1_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row1_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row2_op2 ==  v.getId() || R.id.row2_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row2_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row2_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row2_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row2_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row3_op2 ==  v.getId() || R.id.row3_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row3_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row3_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row3_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row3_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row4_op2 ==  v.getId() || R.id.row4_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row4_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row4_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row4_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row4_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row5_op2 ==  v.getId() || R.id.row5_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row5_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row5_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row5_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row5_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row6_op2 ==  v.getId() || R.id.row6_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row6_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row6_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row6_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row6_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row7_op2 ==  v.getId() || R.id.row7_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row7_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row7_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row7_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row7_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row8_op2 ==  v.getId() || R.id.row8_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row8_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row8_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row8_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row8_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row9_op2 ==  v.getId() || R.id.row9_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row9_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row9_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row9_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row9_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row10_op2 ==  v.getId() || R.id.row10_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row10_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row10_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row10_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row10_res)).setText(String.valueOf((op1 * op2));
                 }
                 if(R.id.row11_op2 ==  v.getId() || R.id.row11_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row11_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row11_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row11_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row11_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row12_op2 ==  v.getId() || R.id.row12_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row12_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row12_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row12_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row12_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row13_op2 ==  v.getId() || R.id.row13_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row13_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row13_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row13_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row13_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row14_op2 ==  v.getId() || R.id.row14_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row14_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row14_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row14_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row14_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row15_op2 ==  v.getId() || R.id.row15_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row15_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row15_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row15_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row15_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row16_op2 ==  v.getId() || R.id.row16_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row16_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row16_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row16_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row16_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row17_op2 ==  v.getId() || R.id.row17_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row17_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row17_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row17_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row17_res)).setText(String.valueOf((op1 * op2));
                 }
                 if(R.id.row18_op2 ==  v.getId() || R.id.row18_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row18_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row18_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row18_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row18_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row19_op2 ==  v.getId() || R.id.row19_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row19_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row19_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row19_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row19_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row20_op2 ==  v.getId() || R.id.row20_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row20_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row20_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row20_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row20_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row21_op2 ==  v.getId() || R.id.row21_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row21_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row21_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row21_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.row21_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.last_row_op2 ==  v.getId() || R.id.last_row_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.last_row_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.last_row_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.last_row_res)).setText(String.valueOf(Math.floor(op1 * op2)));
+                    ((EditText) findViewById(R.id.last_row_res)).setText(String.valueOf(op1 * op2));
                 }
             } catch (java.lang.NumberFormatException e) {
                 Log.v(TAG, "NumberFormatException ");
@@ -353,7 +353,7 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
             double subTotal = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11 +
                               res12 + res13 + res14 + res15 + res16 + res17 + res18 + res19 + res20 + res21 + res22;
             Log.v(TAG, String.valueOf(subTotal));
-            ((EditText) findViewById(R.id.sub_total_val)).setText(String.valueOf(Math.floor(subTotal)));
+            ((EditText) findViewById(R.id.sub_total_val)).setText(String.valueOf((subTotal));
         } // focus out
     } // onFocusChange
 } // class
