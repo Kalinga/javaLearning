@@ -147,21 +147,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    
+    public Cursor getDateWiseCollectionBySite(int siteId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = null;
+        switch (siteId) {
+            case 1:
+            data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 1 AND 99", null);
+                break;
+            case 2:
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 100 AND 199", null);
+                break;
+            case 3:
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 200 AND 299", null);
+                break;
+            case 4:
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 300 AND 399", null);
+                break;
+        }
+        return data;
+    }
+
+    
     public Cursor getGrandTotalBySite(int siteId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = null;
         switch (siteId) {
             case 1:
-            data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 1 AND 99", null);
+            data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 1 AND 99", null);
                 break;
             case 2:
-                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 100 AND 199", null);
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 100 AND 199", null);
                 break;
             case 3:
-                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 200 AND 299", null);
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 200 AND 299", null);
                 break;
             case 4:
-                data = db.rawQuery("SELECT SUM(TOTAL) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 300 AND 399", null);
+                data = db.rawQuery("SELECT SUM(TOTAL) SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 300 AND 399", null);
                 break;
         }
         return data;
