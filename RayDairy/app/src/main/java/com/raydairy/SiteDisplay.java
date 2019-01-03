@@ -68,7 +68,6 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(),
                                     "PROBLEM DURING ADDING NEW CUSTOMER", Toast.LENGTH_SHORT);
-                            //toast.setMargin(00,0);
                             toast.setDuration(Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 10);
                             toast.show();
@@ -98,8 +97,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 Log.v(TAG, String.valueOf(crsr.getCount()));
                 String details = "";
                 details = String.valueOf(id) + "\t" + name + "\n";
-                details += "DATE"+ space(12) + "TOTAL" + space(4) + "FAT" + space(4) +
-                        "QUANTITY" + space(4) + "LACT" + "\n";
+                details += space(4) + "DATE"+ space(8) + "TOTAL" + space(4) + "QUANTITY" + space(4) +
+                           "FAT" + space(4) + "LACT" + "\n";
                 int count = 1;
                 if( crsr != null && crsr.moveToFirst() ) {
                     do {
@@ -110,8 +109,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                         String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
 
                         String record = Integer.toString(count) +": " + date.split(" ")[0] +
-                                space(2) +  total+ space(8) + lact + space(6) +
-                                fat + space(6) + quant ;
+                                        space(2) + total+ space(8) + quant + space(6) +
+                                        fat + space(6) + lact;
                         details += record + "\n";
                         ++count;
                     } while (crsr.moveToNext());
