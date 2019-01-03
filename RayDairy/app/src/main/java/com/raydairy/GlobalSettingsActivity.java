@@ -1,13 +1,20 @@
 package com.raydairy;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,28 +26,6 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 
-public class ResetTransactionDialogFragment extends DialogFragment {
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Are you Sure to DELETE All data for last 10 days? )
-               .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       // Delete all Data
-                       dbHelper.resetTransaction();
-                   }
-               })
-               .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       // User cancelled the dialog
-                   }
-               });
-        // Create the AlertDialog object and return it
-        return builder.create();
-    }
-}
-
 public class GlobalSettingsActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     private static final String TAG = "RAYActivity";
@@ -48,6 +33,15 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get extra data included in the Intent
+            String message = intent.getStringExtra("message");
+            Log.v(TAG, "com.raydairy.broadcast.RESET_TRANSACTION" + message);
+            dbHelper.resetTransaction();
+        }
+    };
 
     private void setOnFocusChangeListener(int id) {
         EditText ed = findViewById(id);
@@ -61,6 +55,8 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
         //dbh =  new DatabaseHelper(this);
         //dbh.updateData(27.50f);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
+                new IntentFilter("com.raydairy.broadcast.RESET_TRANSACTION"));
 
         setOnFocusChangeListener(R.id.base_price);
 
@@ -72,6 +68,12 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         ((EditText) findViewById(R.id.base_price)).setText(Float.toString(old_price));
     }
 
+    @Override
+    protected void onDestroy() {
+        // Unregister since the activity is about to be closed.
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
+    }
     public void buttonClickHandler(View view) {
         String name = ((Button) view).getText().toString();
         Log.v(TAG, name);
@@ -122,7 +124,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     public void resetTrasactions(View view) {
         ResetTransactionDialogFragment dialog = new ResetTransactionDialogFragment();
-        dialog.show();
+        dialog.show(getSupportFragmentManager(), "Reset Transaction?");
     }
 
     public void resetDBbuttonClickHandler(View view) {

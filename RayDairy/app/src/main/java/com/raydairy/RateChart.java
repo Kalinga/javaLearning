@@ -30,11 +30,11 @@ import static java.lang.System.*;
 
 public class RateChart extends AppCompatActivity implements View.OnFocusChangeListener {
     private static final String TAG = "RAYActivity";
-    Map priceList = populatePriceList();
+    //Map priceList = populatePriceList();
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
 
-    private Map<Object,Map> populatePriceList() {
+    /*private Map<Object,Map> populatePriceList() {
         Map price = new HashMap();
         Map fat39_41 = new HashMap();
         MathContext mc = new MathContext(2);
@@ -69,7 +69,7 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
 
         return price.toString();
 
-    }
+    } */
 
     private String calculatePrice(float fat, float snf) {
         SharedPreferences prefs = PreferenceManager
@@ -82,7 +82,7 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         // Base snf 8.00,
         float BASE_FAT = 3.9f;
         float BASE_SNF = 8.0f;
-        float LOW_FAT_PENALTY = 0.40f;
+        float LOW_FAT_PENALTY = 0.0f;
         float UNIT_FAT_PRICE = 0.81f;
 
         float _fat_diff = (fat - BASE_FAT);
@@ -158,7 +158,7 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
 
         //row1_today
         Date c = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:MM:SS");
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy a");
         String formattedDate = df.format(c);
         ((EditText) findViewById(R.id.row1_today)).setText(formattedDate);
 
@@ -224,7 +224,6 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
                 } else {
                     ((EditText) findViewById(R.id.value_name)).setText("");
                 }
-
 
                 crsr.close();
             }

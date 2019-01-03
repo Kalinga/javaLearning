@@ -262,7 +262,7 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
                 if(R.id.row10_op2 ==  v.getId() || R.id.row10_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row10_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row10_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row10_res)).setText(String.valueOf((op1 * op2));
+                    ((EditText) findViewById(R.id.row10_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row11_op2 ==  v.getId() || R.id.row11_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row11_op1)).getText().toString());
@@ -297,7 +297,7 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
                 if(R.id.row17_op2 ==  v.getId() || R.id.row17_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row17_op1)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row17_op2)).getText().toString());
-                    ((EditText) findViewById(R.id.row17_res)).setText(String.valueOf((op1 * op2));
+                    ((EditText) findViewById(R.id.row17_res)).setText(String.valueOf(op1 * op2));
                 }
                 if(R.id.row18_op2 ==  v.getId() || R.id.row18_op1 ==  v.getId()) {
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row18_op1)).getText().toString());
@@ -353,7 +353,7 @@ public class Calculator extends AppCompatActivity implements View.OnFocusChangeL
             double subTotal = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11 +
                               res12 + res13 + res14 + res15 + res16 + res17 + res18 + res19 + res20 + res21 + res22;
             Log.v(TAG, String.valueOf(subTotal));
-            ((EditText) findViewById(R.id.sub_total_val)).setText(String.valueOf((subTotal));
+            ((EditText) findViewById(R.id.sub_total_val)).setText(String.valueOf(subTotal));
         } // focus out
     } // onFocusChange
 } // class

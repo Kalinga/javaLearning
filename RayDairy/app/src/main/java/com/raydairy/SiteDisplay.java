@@ -35,8 +35,12 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
     public String space(int n) {
         StringBuilder str = new StringBuilder("");
-        for(int i =0; i<n; ++i)
+        if (n > 0) {
+            for (int i = 0; i < n; ++i)
+                str.append(" ");
+        } else {
             str.append(" ");
+        }
 
         return str.toString();
     }
@@ -46,6 +50,7 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
         int id = -1;
         String name = "INVALID";
         Cursor crsr = null;
+        String details = "";
 
         switch(view.getId()){
             case R.id.add_cust:
@@ -81,76 +86,66 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 break;
 
             case R.id.report:
-                id = Integer.parseInt(((EditText) findViewById(R.id.cust_id)).getText().toString());
-                crsr = dbHelper.getDataById(id);
-                int colName = crsr.getColumnIndex("NAME");
-                Log.v(TAG, String.valueOf(crsr.getCount()));
+                try {
+                    id = Integer.parseInt(((EditText) findViewById(R.id.cust_id)).getText().toString());
+                    crsr = dbHelper.getDataById(id);
+                    int colName = crsr.getColumnIndex("NAME");
+                    Log.v(TAG, String.valueOf(crsr.getCount()));
 
-                if( crsr != null && crsr.moveToFirst() ) {
-                    name = crsr.getString(colName);
+                    if (crsr != null && crsr.moveToFirst()) {
+                        name = crsr.getString(colName);
 
-                    //Log.v(TAG, String.valueOf(id));
-                    //Log.v(TAG, name);
+                        //Log.v(TAG, String.valueOf(id));
+                        //Log.v(TAG, name);
+                    }
+                    crsr.close();
+
+                    crsr = dbHelper.getTransactionById(id);
+                    Log.v(TAG, String.valueOf(crsr.getCount()));
+                    details = String.valueOf(id) + "\t" + name + "\n";
+                    details += space(4) + "DATE" + space(8) + "TOTAL" + space(4) + "QUANTITY" + space(4) +
+                            "FAT" + space(4) + "LACT" + "\n";
+                    int count = 1;
+                    if (crsr != null && crsr.moveToFirst()) {
+                        do {
+                            String date = crsr.getString(crsr.getColumnIndex("DATE"));
+                            String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
+                            String lact = crsr.getString(crsr.getColumnIndex("LACT"));
+                            String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                            String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
+
+                            String record = Integer.toString(count) + ": " + date.split(" ")[0] +
+                                    space(6 - total.length()) + total + space(8 - quant.length()) + quant +
+                                    space(10 - fat.length()) + fat + space(10 - lact.length()) + lact;
+
+                            details += record + "\n";
+                            ++count;
+                        } while (crsr.moveToNext());
+                    }
+                    crsr.close();
+
+                    crsr = dbHelper.getGrandTotalById(id);
+                    if (crsr != null && crsr.moveToFirst()) {
+                        do {
+                            Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                            String sum = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
+                            details += "\n GRAND TOTAL:\t" + sum + "\n";
+                        } while (crsr.moveToNext());
+                    }
+
+                    crsr.close();
+
+                    ((TextView) findViewById(R.id.detailed_report)).setText(details);
+                } catch (java.lang.NumberFormatException e) {
+                    Log.v(TAG, "NumberFormatException ");
                 }
-                crsr.close();
-
-                crsr = dbHelper.getTransactionById(id);
-                Log.v(TAG, String.valueOf(crsr.getCount()));
-                String details = "";
-                details = String.valueOf(id) + "\t" + name + "\n";
-                details += space(4) + "DATE"+ space(8) + "TOTAL" + space(4) + "QUANTITY" + space(4) +
-                           "FAT" + space(4) + "LACT" + "\n";
-                int count = 1;
-                if( crsr != null && crsr.moveToFirst() ) {
-                    do {
-                        String date = crsr.getString(crsr.getColumnIndex("DATE"));
-                        String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
-                        String lact = crsr.getString(crsr.getColumnIndex("LACT"));
-                        String fat = crsr.getString(crsr.getColumnIndex("FAT"));
-                        String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
-
-                        String record = Integer.toString(count) +": " + date.split(" ")[0] +
-                                        space(2) + total+ space(8) + quant + space(6) +
-                                        fat + space(6) + lact;
-                        details += record + "\n";
-                        ++count;
-                    } while (crsr.moveToNext());
-                }
-                crsr.close();
-
-                crsr = dbHelper.getGrandTotalById(id);
-                if( crsr != null && crsr.moveToFirst() ) {
-                    do {
-                        Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-                        String sum = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
-                        details += "\n GRAND TOTAL:\t" + sum + "\n";
-                    } while (crsr.moveToNext());
-                }
-
-                crsr.close();
-
-                ((TextView)findViewById(R.id.detailed_report)).setText(details);
                 break;
 
             case R.id.summary:
-                int site_id = 0,
-                switch(siteName) {
-                    case R.string.site_42:
-                        site_id = 1;
-                        break;
-                    case R.string.site_SSN :
-                        site_id = 2;
-                        break;
-                    case R.string.site_SS :
-                        site_id = 3;
-                        break;
-                    case R.string.site_SP :
-                        site_id = 4;
-                        break;    
-                }
-                
+                int site_id = 0;
                 String button_text = ((Button) findViewById(R.id.summary)).getText().toString();
-                if (button_text == "EXIT") {
+
+                if (button_text.equals("EXIT")) {
                     (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
                     (findViewById(R.id.report)).setVisibility(View.VISIBLE);
                     (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
@@ -160,28 +155,50 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
     
                     ((Button) findViewById(R.id.summary)).setText("SUMMARY");
                     ((Button) findViewById(R.id.add_cust)).setText("NEW CUSTOMER");
-                } else if (button_text == "SUMMARY") {   
+                } else if (button_text.equals("SUMMARY") ) {
+                    if (siteName.equals(getString(R.string.site_42)))
+                        site_id = 1;
+                    else if (siteName.equals(getString(R.string.site_SSN )))
+                        site_id = 2;
+                    else if (siteName.equals(getString(R.string.site_SS )))
+                        site_id = 3;
+                    else if (siteName.equals(getString(R.string.site_SP )))
+                        site_id = 4;
+
                     ((Button) findViewById(R.id.summary)).setText("HIDE SUMMARY");
 
                     crsr = dbHelper.getGrandTotalBySite(site_id);
-                    if( crsr != null && crsr.moveToFirst() ) {
-                    do {
-                        Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-                        String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
-                        String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                        details += "\n TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
-                        details += "\n TOTAL MILK Collected:\t" + sum_quant + "\n";
-                    } while (crsr.moveToNext());
+                    if (crsr != null && crsr.moveToFirst()) {
+                        do {
+                            Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                            String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
+                            String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                            details += "TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
+                            details += "TOTAL MILK Collected:\t" + sum_quant + "\n\n";
+                        } while (crsr.moveToNext());
 
-                crsr.close();
-                ((TextView)findViewById(R.id.detailed_report)).setText(details);
+                        crsr.close();
+
+                        crsr = dbHelper.getDateWiseCollectionBySite(site_id);
+                        if (crsr != null && crsr.moveToFirst()) {
+                            do {
+                                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                                String date = crsr.getString(crsr.getColumnIndex("DATE"));
+                                String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                                details +=  date + space(8) + sum_groupby_date + "\n";
+                            } while (crsr.moveToNext());
+                        }
+
+
+                        ((TextView) findViewById(R.id.detailed_report)).setText(details);
+                    }
+                    crsr.close();
+
+
                 } else {
                     ((Button) findViewById(R.id.summary)).setText("SUMMARY");
-                    ((TextView)findViewById(R.id.detailed_report)).setText("");                        
+                    ((TextView) findViewById(R.id.detailed_report)).setText("");
                 }
-
-                
-                // Summary
                 break;
         }
     }
