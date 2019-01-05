@@ -17,6 +17,7 @@ import java.io.File;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "RAYActivity";
 
+    static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "users.db";
     public static final String TABLE_CUSTOMER = "users_data";
     public static final String TABLE_TRANS = "transcation";
@@ -28,10 +29,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_LACT = "LACT";
     public static final String COL_FAT = "FAT";
     public static final String COL_QUA = "QUANTITY";
+    public static final String COL_PRIC = "PRICE";
     public static final String COL_TOT = "TOTAL";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
     }
     @Override
@@ -52,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         StringBuilder transaction = new StringBuilder();
         transaction.append("CREATE TABLE " + TABLE_TRANS + "(" + COL_ID +  " INTEGER, ");
         transaction.append(COL_DATE + " TEXT," + COL_LACT + " INTEGER, " + COL_FAT + " INTEGER, ");
-        transaction.append(COL_QUA + " INTEGER, " + COL_TOT + " INTEGER, ");
+        transaction.append(COL_QUA + " INTEGER, " + COL_TOT + " INTEGER, " + COL_PRIC + " INTEGER, ");
         transaction.append("FOREIGN KEY (" + COL_ID + ") REFERENCES " + TABLE_CUSTOMER + "("+ COL_ID+"));");
 
         db.execSQL(transaction.toString());
@@ -60,9 +62,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        db.execSQL("DROP IF TABLE EXISTS " + TABLE_CUSTOMER);
-        onCreate(db);
+        if(oldVersion < 2)
+            db.execSQL("ALTER TABLE " + TABLE_TRANS + " ADD COLUMN " + COL_PRIC + " string;");
     }
 
     public boolean addCustomer(int id, String name) {
@@ -81,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addTransaction(int id, String date, int lact, float fat, float quant, float total) {
+    public boolean addTransaction(int id, String date, int lact, float fat, float quant, float price, float total) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_ID, id);
@@ -89,6 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_LACT, lact);
         contentValues.put(COL_FAT, fat);
         contentValues.put(COL_QUA, quant);
+        contentValues.put(COL_PRIC, price);
         contentValues.put(COL_TOT, total);
 
         long result = db.insert(TABLE_TRANS, null, contentValues);
@@ -169,7 +171,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    
+    public Cursor getFATWiseCollectionBySite(int siteId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = null;
+        String qry = "SELECT FAT, SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN ";
+        switch (siteId) {
+            case 1:
+                data = db.rawQuery( qry + "1 AND 99 GROUP BY DATE", null);
+                break;
+            case 2:
+                data = db.rawQuery(qry + " 100 AND 199 GROUP BY DATE", null);
+                break;
+            case 3:
+                data = db.rawQuery(qry + "200 AND 299 GROUP BY DATE", null);
+                break;
+            case 4:
+                data = db.rawQuery(qry + "300 AND 399 GROUP BY DATE", null);
+                break;
+        }
+        return data;
+    }
+
+
     public Cursor getGrandTotalBySite(int siteId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = null;

@@ -19,7 +19,7 @@
 
         android:paddingBottom="@dimen/bottomPading"
         android:textColor="@android:color/holo_red_dark"
-        android:text="Price for \n4.0 x 8.0"
+        android:text="Price for \n3.9 x 8.0"
         android:textSize="12sp"
 
         android:textStyle="bold"

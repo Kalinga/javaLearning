@@ -209,34 +209,33 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         if (!hasFocus){
             Log.v(TAG, "focusOutHandler");
             if( R.id.val_id == v.getId()) {
-                Log.v(TAG, "Customer id Focus out");
-                int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
+                try {
+                    Log.v(TAG, "Customer id Focus out");
+                    int id = Integer.parseInt(((EditText) findViewById(R.id.val_id)).getText().toString());
 
-                Cursor crsr = dbHelper.getDataById(id);
-                int colName = crsr.getColumnIndex("NAME");
-                Log.v(TAG, String.valueOf(crsr.getCount()));
+                    Cursor crsr = dbHelper.getDataById(id);
+                    int colName = crsr.getColumnIndex("NAME");
+                    Log.v(TAG, String.valueOf(crsr.getCount()));
 
-                if( crsr != null && crsr.moveToFirst() ) {
+                    if (crsr != null && crsr.moveToFirst()) {
                         String name = crsr.getString(colName);
                         ((EditText) findViewById(R.id.value_name)).setText(name);
                         Log.v(TAG, String.valueOf(id));
                         Log.v(TAG, name);
-                } else {
-                    ((EditText) findViewById(R.id.value_name)).setText("");
+                    } else {
+                        ((EditText) findViewById(R.id.value_name)).setText("");
+                    }
+
+                    crsr.close();
+                } catch (java.lang.NumberFormatException e) {
+                    Log.v(TAG, "NumberFormatException ");
                 }
-
-                crsr.close();
             }
-
-            if( R.id.row1_lac == v.getId()) {
-
-            }
-
-            float op1 = 0;
-            float op2 = 0;
 
             try {
                 if( R.id.row1_fat ==  v.getId()) {
+                    float op1 = 0;
+                    float op2 = 0;
                     op1 = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
                     op2 = Float.parseFloat(((EditText) findViewById(R.id.row1_lac)).getText().toString());
 
@@ -267,10 +266,11 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
             String date = ((EditText) findViewById(R.id.row1_today)).getText().toString();
             int lact = Integer.parseInt(((EditText) findViewById(R.id.row1_lac)).getText().toString());
             float fat = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
+            float pric = Float.parseFloat(((EditText) findViewById(R.id.row1_price)).getText().toString());
             float quant = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
             float total = Float.parseFloat(((EditText) findViewById(R.id.total_price)).getText().toString());
 
-            boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, total);
+            boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, pric, total);
             if (insert) {
                 ((EditText) findViewById(R.id.val_id)).setText("");
                 ((EditText) findViewById(R.id.value_name)).setText("");

@@ -1,10 +1,14 @@
 package com.raydairy;
 
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -102,9 +106,9 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
                     crsr = dbHelper.getTransactionById(id);
                     Log.v(TAG, String.valueOf(crsr.getCount()));
-                    details = String.valueOf(id) + "\t" + name + "\n";
-                    details += space(4) + "DATE" + space(8) + "TOTAL" + space(4) + "QUANTITY" + space(4) +
-                            "FAT" + space(4) + "LACT" + "\n";
+                    details =  space(2) + String.valueOf(id) + "\t\t" + name + "\n\n";
+                    details += space(4) + "DATE" + space(7) +"QUANT"  + space(3) + "LACT" + space(2) +
+                            "FAT" + space(2) + "PRICE" + space(4) + "TOTAL" + "\n";
                     int count = 1;
                     if (crsr != null && crsr.moveToFirst()) {
                         do {
@@ -112,11 +116,19 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                             String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
                             String lact = crsr.getString(crsr.getColumnIndex("LACT"));
                             String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                            String pric = crsr.getString(crsr.getColumnIndex("PRICE"));
+                            if (pric == null)
+                                pric = "NA";
                             String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
 
-                            String record = Integer.toString(count) + ": " + date.split(" ")[0] +
-                                    space(6 - total.length()) + total + space(8 - quant.length()) + quant +
-                                    space(10 - fat.length()) + fat + space(10 - lact.length()) + lact;
+                            String record = space(1) + Integer.toString(count) + ":" +
+                                    space(2 - Integer.toString(count).length()) +
+                                    date.substring(0,6) +
+                                    space(10 - quant.length()) + quant +
+                                    space(6 - lact.length()) + lact +
+                                    space(6 - fat.length()) + fat +
+                                    space(8 - pric.length()) + pric +
+                                    space(6 - total.length()) + total;
 
                             details += record + "\n";
                             ++count;
@@ -189,12 +201,42 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                             } while (crsr.moveToNext());
                         }
 
+                        crsr.close();
+
+                        details += "\nCollection by FAT \n";
+                        crsr = dbHelper.getFATWiseCollectionBySite(site_id);
+                        if (crsr != null && crsr.moveToFirst()) {
+                            do {
+                                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                                String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                                String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                                details +=  fat + space(8) + sum_groupby_date + "\n";
+                            } while (crsr.moveToNext());
+                        }
+
 
                         ((TextView) findViewById(R.id.detailed_report)).setText(details);
                     }
+
                     crsr.close();
 
+                    try {
+                        String phone = "918249279918";
 
+                        Intent sendIntent =new Intent("android.intent.action.MAIN");
+                        //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.setPackage("com.whatsapp");
+                        sendIntent.setType("text/plain");
+                        sendIntent.putExtra("jid", phone +"@s.whatsapp.net");
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, details + "\n\nFrom: " + siteName);
+
+                        startActivity(sendIntent);
+
+                    } catch (/*PackageManager.NameNotFoundException e*/ Exception e) {
+                        Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 } else {
                     ((Button) findViewById(R.id.summary)).setText("SUMMARY");
                     ((TextView) findViewById(R.id.detailed_report)).setText("");
