@@ -47,13 +47,12 @@
         android:id="@+id/cust_id"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="@dimen/regular_top_margin"
 
         android:focusable="true"
-        android:hint="Customer Id"
+        android:hint="   Id"
         android:maxLength="5"
         android:paddingBottom="@dimen/bottomPading"
 
@@ -67,7 +66,7 @@
         android:layout_height="@dimen/height"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="REPORT"
         android:textStyle="bold"
         android:height="50dp"
@@ -84,13 +83,28 @@
         android:layout_height="@dimen/height"
 
         android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:textStyle="bold"
         android:height="@dimen/height"
 
         android:onClick="buttonClickHandler"
         app:layout_constraintStart_toEndOf="@+id/report"
+        app:layout_constraintTop_toBottomOf="@+id/site_id"/>
+
+    <Button
+        android:id="@+id/whatsapp"
+        android:text="WHATSAPP"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:height="@dimen/height"
+
+        android:onClick="buttonClickHandler"
+        app:layout_constraintStart_toEndOf="@+id/summary"
         app:layout_constraintTop_toBottomOf="@+id/site_id"/>
 
     <TextView

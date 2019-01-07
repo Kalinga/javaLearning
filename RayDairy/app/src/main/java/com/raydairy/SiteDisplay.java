@@ -127,8 +127,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                                     space(10 - quant.length()) + quant +
                                     space(6 - lact.length()) + lact +
                                     space(6 - fat.length()) + fat +
-                                    space(8 - pric.length()) + pric +
-                                    space(6 - total.length()) + total;
+                                    space(7 - pric.length()) + pric +
+                                    space(8 - total.length()) + total;
 
                             details += record + "\n";
                             ++count;
@@ -154,7 +154,6 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 break;
 
             case R.id.summary:
-                int site_id = 0;
                 String button_text = ((Button) findViewById(R.id.summary)).getText().toString();
 
                 if (button_text.equals("EXIT")) {
@@ -168,81 +167,85 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                     ((Button) findViewById(R.id.summary)).setText("SUMMARY");
                     ((Button) findViewById(R.id.add_cust)).setText("NEW CUSTOMER");
                 } else if (button_text.equals("SUMMARY") ) {
-                    if (siteName.equals(getString(R.string.site_42)))
-                        site_id = 1;
-                    else if (siteName.equals(getString(R.string.site_SSN )))
-                        site_id = 2;
-                    else if (siteName.equals(getString(R.string.site_SS )))
-                        site_id = 3;
-                    else if (siteName.equals(getString(R.string.site_SP )))
-                        site_id = 4;
-
                     ((Button) findViewById(R.id.summary)).setText("HIDE SUMMARY");
 
-                    crsr = dbHelper.getGrandTotalBySite(site_id);
-                    if (crsr != null && crsr.moveToFirst()) {
-                        do {
-                            Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-                            String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
-                            String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                            details += "TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
-                            details += "TOTAL MILK Collected:\t" + sum_quant + "\n\n";
-                        } while (crsr.moveToNext());
-
-                        crsr.close();
-
-                        crsr = dbHelper.getDateWiseCollectionBySite(site_id);
-                        if (crsr != null && crsr.moveToFirst()) {
-                            do {
-                                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-                                String date = crsr.getString(crsr.getColumnIndex("DATE"));
-                                String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                                details +=  date + space(8) + sum_groupby_date + "\n";
-                            } while (crsr.moveToNext());
-                        }
-
-                        crsr.close();
-
-                        details += "\nCollection by FAT \n";
-                        crsr = dbHelper.getFATWiseCollectionBySite(site_id);
-                        if (crsr != null && crsr.moveToFirst()) {
-                            do {
-                                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-                                String fat = crsr.getString(crsr.getColumnIndex("FAT"));
-                                String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                                details +=  fat + space(8) + sum_groupby_date + "\n";
-                            } while (crsr.moveToNext());
-                        }
-
-
-                        ((TextView) findViewById(R.id.detailed_report)).setText(details);
-                    }
-
-                    crsr.close();
-
-                    try {
-                        String phone = "918249279918";
-
-                        Intent sendIntent =new Intent("android.intent.action.MAIN");
-                        //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-                        sendIntent.setAction(Intent.ACTION_SEND);
-                        sendIntent.setPackage("com.whatsapp");
-                        sendIntent.setType("text/plain");
-                        sendIntent.putExtra("jid", phone +"@s.whatsapp.net");
-                        sendIntent.putExtra(Intent.EXTRA_TEXT, details + "\n\nFrom: " + siteName);
-
-                        startActivity(sendIntent);
-
-                    } catch (/*PackageManager.NameNotFoundException e*/ Exception e) {
-                        Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
-                                .show();
-                    }
+                    ((TextView) findViewById(R.id.detailed_report)).setText(getDetails());
                 } else {
                     ((Button) findViewById(R.id.summary)).setText("SUMMARY");
                     ((TextView) findViewById(R.id.detailed_report)).setText("");
                 }
                 break;
+             case R.id.whatsapp:
+                try {
+                    String phone = "918249279918";
+
+                    Intent sendIntent =new Intent("android.intent.action.MAIN");
+                    //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.setPackage("com.whatsapp");
+                    sendIntent.setType("text/plain");
+                    sendIntent.putExtra("jid", phone +"@s.whatsapp.net");
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, getDetails() + "\n\nFrom: " + siteName);
+
+                    startActivity(sendIntent);
+
+                } catch (/*PackageManager.NameNotFoundException e*/ Exception e) {
+                    Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                            .show();
+                }
         }
+    }
+
+    private String getDetails() {
+        String name = "INVALID";
+        Cursor crsr = null;
+        String details = "";
+        int site_id = 0;
+        if (siteName.equals(getString(R.string.site_42)))
+            site_id = 1;
+        else if (siteName.equals(getString(R.string.site_SSN )))
+            site_id = 2;
+        else if (siteName.equals(getString(R.string.site_SS )))
+            site_id = 3;
+        else if (siteName.equals(getString(R.string.site_SP )))
+            site_id = 4;
+        crsr = dbHelper.getGrandTotalBySite(site_id);
+        if (crsr != null && crsr.moveToFirst()) {
+            do {
+                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
+                String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                details += "TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
+                details += "TOTAL MILK Collected:\t" + sum_quant + "\n\n";
+            } while (crsr.moveToNext());
+        }
+            crsr.close();
+
+            crsr = dbHelper.getDateWiseCollectionBySite(site_id);
+            if (crsr != null && crsr.moveToFirst()) {
+                do {
+                    Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                    String date = crsr.getString(crsr.getColumnIndex("DATE"));
+                    String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                    details +=  date + space(8) + sum_groupby_date + "\n";
+                } while (crsr.moveToNext());
+            }
+
+            crsr.close();
+
+            details += "\nCollection by FAT \n";
+            crsr = dbHelper.getFATWiseCollectionBySite(site_id);
+            if (crsr != null && crsr.moveToFirst()) {
+                do {
+                    Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                    String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                    String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                    details +=  fat + space(8) + sum_groupby_date + "\n";
+                } while (crsr.moveToNext());
+            }
+            crsr.close();
+
+            return details;
     }
 
     @Override
