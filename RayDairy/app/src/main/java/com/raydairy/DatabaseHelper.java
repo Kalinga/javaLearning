@@ -34,8 +34,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
+    
     @Override
     public void onConfigure(SQLiteDatabase db) {
         db.setForeignKeyConstraintsEnabled(true);
@@ -45,12 +45,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("PRAGMA foreign_keys = ON;");
 
-        // transaction  Customer table
+        // craete  Customer table
         String customer = "CREATE TABLE " + TABLE_CUSTOMER + "(" + COL_ID +  " INTEGER PRIMARY KEY, "
                 + COL_NAME + " TEXT )";
         db.execSQL(customer);
 
-        // transaction  TABLE
+        // craete transaction  TABLE
         StringBuilder transaction = new StringBuilder();
         transaction.append("CREATE TABLE " + TABLE_TRANS + "(" + COL_ID +  " INTEGER, ");
         transaction.append(COL_DATE + " TEXT," + COL_LACT + " INTEGER, " + COL_FAT + " INTEGER, ");
@@ -74,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_CUSTOMER, null, contentValues);
 
-        //if date as inserted incorrectly it will return -1
+        //if data is inserted incorrectly, it will return -1
         if (result == -1) {
             return false;
         } else {
@@ -95,7 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_TRANS, null, contentValues);
 
-        //if date as inserted incorrectly it will return -1
+        //if data is inserted incorrectly it will return -1
         if (result == -1) {
             return false;
         } else {
@@ -112,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.update(TABLE_CUSTOMER, contentValues,"ID=?", new String[]{"1"});
         Log.v(TAG, Long.toString(result));
 
-        //if data as inserted incorrectly it will return -1
+        //if data is inserted incorrectly it will return -1
         if (result == -1) {
             return false;
         } else {
@@ -149,7 +149,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    
     public Cursor getDateWiseCollectionBySite(int siteId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = null;
@@ -196,18 +195,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getGrandTotalBySite(int siteId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = null;
+        String qry = "SELECT SUM(TOTAL), SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN ";
+
         switch (siteId) {
             case 1:
-                data = db.rawQuery("SELECT SUM(TOTAL), SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 1 AND 99", null);
+                data = db.rawQuery(qry + " WHERE ID BETWEEN 1 AND 99", null);
                 break;
             case 2:
-                data = db.rawQuery("SELECT SUM(TOTAL), SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 100 AND 199", null);
+                data = db.rawQuery(qry + " WHERE ID BETWEEN 100 AND 199", null);
                 break;
             case 3:
-                data = db.rawQuery("SELECT SUM(TOTAL), SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 200 AND 299", null);
+                data = db.rawQuery(qry + " WHERE ID BETWEEN 200 AND 299", null);
                 break;
             case 4:
-                data = db.rawQuery("SELECT SUM(TOTAL), SUM(QUANTITY) FROM " + TABLE_TRANS + " WHERE ID BETWEEN 300 AND 399", null);
+                data = db.rawQuery(qry + " WHERE ID BETWEEN 300 AND 399", null);
                 break;
         }
         return data;
@@ -223,5 +224,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("delete from "+ TABLE_TRANS);
     }
-
 }
