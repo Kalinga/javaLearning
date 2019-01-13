@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,15 +34,75 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
+    private void whatsapp(String msg) {
+        try {
+            String phone = "917795346374";
+
+            Intent sendIntent =new Intent("android.intent.action.MAIN");
+            //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setPackage("com.whatsapp");
+            sendIntent.setType("text/plain");
+            sendIntent.putExtra("jid", phone +"@s.whatsapp.net");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, msg );
+
+            startActivity(sendIntent);
+
+        } catch (/*PackageManager.NameNotFoundException e*/ Exception e) {
+            Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+    }
+
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             // Get extra data included in the Intent
             String message = intent.getStringExtra("message");
             Log.v(TAG, "com.raydairy.broadcast.RESET_TRANSACTION" + message);
+            // fetch and whatsapp
+            String details = allTransactions();
+
             dbHelper.resetTransaction();
+
+            whatsapp(details);
         }
     };
+
+    private String allTransactions() {
+        Cursor crsr = dbHelper.getAllTransaction();
+        String details = "";
+        if (crsr != null && crsr.moveToFirst()) {
+            do {
+                String date = crsr.getString(crsr.getColumnIndex("DATE"));
+                String id = crsr.getString(crsr.getColumnIndex("ID"));
+                String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
+                String lact = crsr.getString(crsr.getColumnIndex("LACT"));
+                String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                String snf = crsr.getString(crsr.getColumnIndex("SNF"));
+                String pric = crsr.getString(crsr.getColumnIndex("PRICE"));
+                if (pric == null)
+                    pric = "NA";
+                String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
+
+                String record =
+                        id    + "," +
+                        date  + "," +
+                        quant + "," +
+                        lact  + "," +
+                        fat   + "," +
+                        snf   + "," +
+                        pric  + "," +
+                        total;
+
+                details += record + "\n";
+
+            } while (crsr.moveToNext());
+        }
+        crsr.close();
+        return details;
+    }
 
     private void setOnFocusChangeListener(int id) {
         EditText ed = findViewById(id);
@@ -127,7 +188,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         dialog.show(getSupportFragmentManager(), "Reset Transaction?");
     }
 
-    public void resetDBbuttonClickHandler(View view) {
+    /*public void resetDBbuttonClickHandler(View view) {
         String DB_PATH = getApplicationContext().getDatabasePath(DATABASE_NAME).getPath();
         File file = new File(DB_PATH );
         if (file.exists()) {
@@ -140,8 +201,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("db_created", false);
         editor.commit();
-    }
-
+    }*/
 
     private void savePrice() {
         try {

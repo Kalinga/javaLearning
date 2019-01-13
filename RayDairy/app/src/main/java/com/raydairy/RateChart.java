@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import static java.lang.System.*;
 
 public class RateChart extends AppCompatActivity implements View.OnFocusChangeListener {
     private static final String TAG = "RAYActivity";
+    private String lastSavedName = "last saved customer";
     //Map priceList = populatePriceList();
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
@@ -252,6 +254,9 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
                     double floor_price = total_price;
                     floor_price = Math.floor(floor_price);
                     ((EditText) findViewById(R.id.total_price)).setText(Double.toString(floor_price));
+
+                    Button save = (Button) findViewById(R.id.add_todb);
+                    save.setEnabled(true);
                 }
             } catch (java.lang.NumberFormatException e) {
                 Log.v(TAG, "NumberFormatException ");
@@ -266,12 +271,15 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
             String date = ((EditText) findViewById(R.id.row1_today)).getText().toString();
             int lact = Integer.parseInt(((EditText) findViewById(R.id.row1_lac)).getText().toString());
             float fat = Float.parseFloat(((EditText) findViewById(R.id.row1_fat)).getText().toString());
+            float snf = Float.parseFloat(((EditText) findViewById(R.id.row1_snf)).getText().toString());
             float pric = Float.parseFloat(((EditText) findViewById(R.id.row1_price)).getText().toString());
             float quant = Float.parseFloat(((EditText) findViewById(R.id.row1_quantity)).getText().toString());
             float total = Float.parseFloat(((EditText) findViewById(R.id.total_price)).getText().toString());
 
-            boolean insert = dbHelper.addTransaction(id, date, lact, fat, quant, pric, total);
+            boolean insert = dbHelper.addTransaction(id, date, lact, fat, snf, quant, pric, total);
             if (insert) {
+                lastSavedName =  ((EditText) findViewById(R.id.value_name)).getText().toString();
+                ((EditText) findViewById(R.id.val_last_cust_name)).setText(lastSavedName);
                 ((EditText) findViewById(R.id.val_id)).setText("");
                 ((EditText) findViewById(R.id.value_name)).setText("");
                 ((EditText) findViewById(R.id.row1_lac)).setText("");
@@ -280,6 +288,9 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
                 ((EditText) findViewById(R.id.row1_price)).setText("");
                 ((EditText) findViewById(R.id.row1_quantity)).setText("");
                 ((EditText) findViewById(R.id.total_price)).setText("");
+
+                Button save = (Button) findViewById(R.id.add_todb);
+                save.setEnabled(false);
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "PROBLEM DURING SAVING DATA", Toast.LENGTH_SHORT);

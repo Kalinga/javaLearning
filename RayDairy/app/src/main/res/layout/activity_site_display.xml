@@ -10,10 +10,12 @@
         android:id="@+id/site_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
+        android:layout_marginLeft="2dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="2dp"
+
         android:height="30dp"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_orange_dark"
@@ -47,12 +49,12 @@
         android:id="@+id/cust_id"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="1dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="@dimen/regular_top_margin"
 
         android:focusable="true"
-        android:hint="   Id"
+        android:hint=" #ID#  "
         android:maxLength="5"
         android:paddingBottom="@dimen/bottomPading"
 
@@ -99,6 +101,7 @@
         android:layout_height="@dimen/height"
 
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:textStyle="bold"
         android:height="@dimen/height"
@@ -111,12 +114,14 @@
         android:id="@+id/detailed_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
 
         android:hint="Detailed report..."
+        android:scrollbars="vertical"
 
         android:textColor="@android:color/holo_red_dark"
         android:textSize="12sp"
@@ -124,7 +129,7 @@
         android:typeface="monospace"
         android:inputType="textMultiLine"
         android:singleLine="false"
-        android:gravity="left"
+
         app:layout_constraintTop_toBottomOf="@+id/cust_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

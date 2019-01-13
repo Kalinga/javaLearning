@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
         (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
         (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
+        TextView detail_textView = findViewById(R.id.detailed_report);
+        detail_textView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     public String space(int n) {
@@ -107,8 +110,13 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                     crsr = dbHelper.getTransactionById(id);
                     Log.v(TAG, String.valueOf(crsr.getCount()));
                     details =  space(2) + String.valueOf(id) + "\t\t" + name + "\n\n";
-                    details += space(4) + "DATE" + space(7) +"QUANT"  + space(3) + "LACT" + space(2) +
-                            "FAT" + space(2) + "PRICE" + space(4) + "TOTAL" + "\n";
+                    details += space(6) +
+                            "DATE" + space(2) +
+                            "QUANT" + space(2) +
+                            "LACT" + space(2) +
+                            "FAT" + space(2) +
+                            "PRICE" + space(2) +
+                            "TOTAL" + "\n";
                     int count = 1;
                     if (crsr != null && crsr.moveToFirst()) {
                         do {
@@ -122,13 +130,13 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                             String quant = crsr.getString(crsr.getColumnIndex("QUANTITY"));
 
                             String record = space(1) + Integer.toString(count) + ":" +
-                                    space(2 - Integer.toString(count).length()) +
+                                    space(3 - Integer.toString(count).length()) +
                                     date.substring(0,6) +
-                                    space(10 - quant.length()) + quant +
+                                    space(6 - quant.length()) + quant +
                                     space(6 - lact.length()) + lact +
-                                    space(6 - fat.length()) + fat +
-                                    space(7 - pric.length()) + pric +
-                                    space(8 - total.length()) + total;
+                                    space(4 - fat.length()) + fat +
+                                    space(6 - pric.length()) + pric +
+                                    space(6 - total.length()) + total;
 
                             details += record + "\n";
                             ++count;
@@ -196,10 +204,7 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
         }
     }
 
-    private String getDetails() {
-        String name = "INVALID";
-        Cursor crsr = null;
-        String details = "";
+    private  int getSiteId() {
         int site_id = 0;
         if (siteName.equals(getString(R.string.site_42)))
             site_id = 1;
@@ -209,43 +214,116 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
             site_id = 3;
         else if (siteName.equals(getString(R.string.site_SP )))
             site_id = 4;
-        crsr = dbHelper.getGrandTotalBySite(site_id);
+        return site_id;
+    }
+
+    private String getDetails() {
+        String name = "INVALID";
+        Cursor crsr = null;
+        String details = "";
+
+        crsr = dbHelper.getGrandTotalBySite(getSiteId());
         if (crsr != null && crsr.moveToFirst()) {
             do {
                 Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
                 String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
                 String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                details += "TOTAL AMOUNT to BE PAID:\t" + sum_tot + "\n";
-                details += "TOTAL MILK Collected:\t" + sum_quant + "\n\n";
+                details += "TOTAL AMOUNT TO PAY :\t" + sum_tot + "\n";
+                details += "TOTAL MILK COLLECTED:\t" + sum_quant + "\n\n";
             } while (crsr.moveToNext());
         }
             crsr.close();
 
-            crsr = dbHelper.getDateWiseCollectionBySite(site_id);
+            crsr = dbHelper.getDateWiseCollectionBySite(getSiteId());
             if (crsr != null && crsr.moveToFirst()) {
                 do {
                     Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
                     String date = crsr.getString(crsr.getColumnIndex("DATE"));
+                    String wAvg = weightedAvg(date);
+
                     String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                    details +=  date + space(8) + sum_groupby_date + "\n";
+                    float quant_bykg = crsr.getFloat(crsr.getColumnIndex("SUM(QUANTITY)")) * 1.03f;
+
+                    details +=  date + space(1) + " : " + sum_groupby_date + " : " +
+                            formatString(Float.toString(quant_bykg)) + " : " +  wAvg +"\n";
                 } while (crsr.moveToNext());
             }
 
             crsr.close();
 
-            details += "\nCollection by FAT \n";
-            crsr = dbHelper.getFATWiseCollectionBySite(site_id);
+            details += "\nOVER ALL COLLECTION BY FAT \n" + "|";
+            crsr = dbHelper.getFATWiseCollectionBySite(getSiteId());
             if (crsr != null && crsr.moveToFirst()) {
                 do {
                     Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
                     String fat = crsr.getString(crsr.getColumnIndex("FAT"));
-                    String sum_groupby_date = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                    details +=  fat + space(8) + sum_groupby_date + "\n";
+                    String sum_groupby_fat = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                    details +=  fat + "->" + sum_groupby_fat + "|";
                 } while (crsr.moveToNext());
             }
             crsr.close();
 
             return details;
+    }
+
+    private String getDetailsById() {
+        String name = "INVALID";
+        Cursor crsr = null;
+        String details = "";
+
+        details += "OVER ALL COLLECTION BY ID \n" + "|";
+        crsr = dbHelper.getFATWiseCollectionBySite(getSiteId());
+        if (crsr != null && crsr.moveToFirst()) {
+            do {
+                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                String fat = crsr.getString(crsr.getColumnIndex("FAT"));
+                String sum_groupby_fat = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
+                details +=  fat + "->" + sum_groupby_fat + "|";
+            } while (crsr.moveToNext());
+        }
+        crsr.close();
+
+        return details;
+    }
+
+    private String formatString(String str) {
+        if (str.contains(".")) {
+            String a = str.split("\\.")[0];
+            String b = str.split("\\.")[1];
+            if (b.length() > 3)
+                return a + "." + b.substring(0, 2);
+            else
+                return a + "." + b;
+        }  else {
+            return str;
+        }
+    }
+
+    private String weightedAvg(String date) {
+        Cursor crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), date);
+        float wFat = 0.0f;
+        float wSNF = 0.0f;
+        float totQuant = 0.0f;
+        if (crsr != null && crsr.moveToFirst()) {
+            do {
+                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                float fat = crsr.getFloat(crsr.getColumnIndex("FAT"));
+                float snf= crsr.getFloat(crsr.getColumnIndex("SNF"));
+                float quant = crsr.getFloat(crsr.getColumnIndex("QUANTITY"));
+                wFat += (fat * quant);
+                wSNF += (snf * quant);
+                totQuant += quant;
+            } while (crsr.moveToNext());
+        }
+        crsr.close();
+        try {
+            wFat = wFat / totQuant;
+            wSNF = wSNF / totQuant;
+        } catch (java.lang.NumberFormatException e) {
+            Log.v(TAG, "NumberFormatException ");
+        }
+        return  formatString(Float.toString(wFat)) + " : " +
+                formatString(Float.toString(wSNF));
     }
 
     @Override
