@@ -36,7 +36,12 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
         (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
         (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
+
         TextView detail_textView = findViewById(R.id.detailed_report);
+        detail_textView.setMaxLines(25);
+        detail_textView.setVerticalScrollBarEnabled(true);
+
+
         detail_textView.setMovementMethod(new ScrollingMovementMethod());
     }
 
@@ -111,12 +116,12 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                     Log.v(TAG, String.valueOf(crsr.getCount()));
                     details =  space(2) + String.valueOf(id) + "\t\t" + name + "\n\n";
                     details += space(6) +
-                            "DATE" + space(2) +
-                            "QUANT" + space(2) +
-                            "LACT" + space(2) +
-                            "FAT" + space(2) +
-                            "PRICE" + space(2) +
-                            "TOTAL" + "\n";
+                            "DATE" + space(3) +
+                            "QNT" + space(1) +
+                            "LCT" + space(2) +
+                            "FAT" + space(4) +
+                            "PRC" + space(3) +
+                            "TOT" + "\n";
                     int count = 1;
                     if (crsr != null && crsr.moveToFirst()) {
                         do {
@@ -132,10 +137,10 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                             String record = space(1) + Integer.toString(count) + ":" +
                                     space(3 - Integer.toString(count).length()) +
                                     date.substring(0,6) +
-                                    space(6 - quant.length()) + quant +
-                                    space(6 - lact.length()) + lact +
-                                    space(4 - fat.length()) + fat +
-                                    space(6 - pric.length()) + pric +
+                                    space(5 - quant.length()) + quant +
+                                    space(4 - lact.length()) + lact +
+                                    space(5 - fat.length()) + fat +
+                                    space(8 - pric.length()) + pric +
                                     space(6 - total.length()) + total;
 
                             details += record + "\n";
@@ -251,14 +256,20 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
             crsr.close();
 
-            details += "\nOVER ALL COLLECTION BY FAT \n" + "|";
+            details += "\nOVER ALL COLLECTION BY FAT \n";
             crsr = dbHelper.getFATWiseCollectionBySite(getSiteId());
+            int c =0;
             if (crsr != null && crsr.moveToFirst()) {
                 do {
                     Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
                     String fat = crsr.getString(crsr.getColumnIndex("FAT"));
                     String sum_groupby_fat = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                    details +=  fat + "->" + sum_groupby_fat + "|";
+                    details +=  fat + "->" + sum_groupby_fat + "  ";
+                    ++c;
+                    if (0 == c % 4) {
+                        details += "\n";
+                        c = 0;
+                    }
                 } while (crsr.moveToNext());
             }
             crsr.close();
@@ -273,12 +284,19 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
 
         details += "OVER ALL COLLECTION BY ID \n" + "|";
         crsr = dbHelper.getFATWiseCollectionBySite(getSiteId());
+        int c = 0;
         if (crsr != null && crsr.moveToFirst()) {
             do {
                 Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
                 String fat = crsr.getString(crsr.getColumnIndex("FAT"));
                 String sum_groupby_fat = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
-                details +=  fat + "->" + sum_groupby_fat + "|";
+                details +=  fat + "->" + sum_groupby_fat + "| ";
+                ++c;
+                if (0 == c % 4) {
+                    details += "\n";
+                    c = 0;
+                }
+
             } while (crsr.moveToNext());
         }
         crsr.close();
