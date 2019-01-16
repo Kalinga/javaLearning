@@ -187,6 +187,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 4:
                 data = db.rawQuery(qry + "300 AND 399 GROUP BY DATE", null);
                 break;
+            case 5:
+                data = db.rawQuery(qry + "400 AND 499 GROUP BY DATE", null);
+                break;
         }
         return data;
     }
@@ -208,6 +211,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 break;
             case 4:
                 data = db.rawQuery(qry + "300 AND 399 " + cond, null);
+                break;
+            case 5:
+                data = db.rawQuery(qry + "400 AND 499 " + cond, null);
                 break;
         }
         return data;
@@ -232,6 +238,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 4:
                 data = db.rawQuery(qry + " 300 AND 399", null);
                 break;
+            case 5:
+                data = db.rawQuery(qry + " 400 AND 499", null);
+                break;
         }
         return data;
     }
@@ -244,11 +253,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-
-    public Cursor getCollectionByDateAndSite(int siteId, String date) {
+    public Cursor getCollectionDateBySite(int siteId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = null;
-        String qry = "SELECT FAT, SNF, QUANTITY FROM " + TABLE_TRANS + " WHERE ID BETWEEN ";
+        String qry = "SELECT DISTINCT DATE FROM " + TABLE_TRANS + " WHERE ID BETWEEN ";
+        String cond = " ORDER BY DATE ASC";
+        switch (siteId) {
+            case 1:
+                data = db.rawQuery(qry + "1 AND 99" + cond, null);
+                break;
+            case 2:
+                data = db.rawQuery(qry + " 100 AND 199" + cond, null);
+                break;
+            case 3:
+                data = db.rawQuery(qry + " 200 AND 299" + cond, null);
+                break;
+            case 4:
+                data = db.rawQuery(qry + " 300 AND 399" + cond, null);
+                break;
+            case 5:
+                data = db.rawQuery(qry + " 400 AND 499" + cond, null);
+                break;
+        }
+        return data;
+    }
+
+        public Cursor getCollectionByDateAndSite(int siteId, String date) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = null;
+        String qry = "SELECT * FROM " + TABLE_TRANS + " WHERE ID BETWEEN ";
         String cond = " AND DATE=" + "\"" + date + "\"";
 
         switch (siteId) {
@@ -263,6 +296,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 break;
             case 4:
                 data = db.rawQuery(qry + " 300 AND 399" + cond, null);
+                break;
+            case 5:
+                data = db.rawQuery(qry + " 400 AND 499" + cond, null);
                 break;
         }
         return data;

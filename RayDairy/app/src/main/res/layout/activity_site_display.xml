@@ -19,7 +19,7 @@
         android:height="30dp"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:typeface="monospace"
 
@@ -64,11 +64,12 @@
 
     <Button
         android:id="@+id/report"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="@dimen/height"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+
         android:text="REPORT"
         android:textStyle="bold"
         android:height="50dp"
@@ -99,16 +100,29 @@
 
         android:layout_width="0dp"
         android:layout_height="@dimen/height"
-
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:height="@dimen/height"
 
         android:onClick="buttonClickHandler"
-        app:layout_constraintStart_toEndOf="@+id/summary"
-        app:layout_constraintTop_toBottomOf="@+id/site_id"/>
+        app:layout_constraintStart_toStartOf="@+id/report"
+        app:layout_constraintTop_toBottomOf="@+id/report"/>
+
+    <Button
+        android:id="@+id/daily"
+        android:text="DAILY RPT"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:height="@dimen/height"
+
+        android:onClick="buttonClickHandler"
+        app:layout_constraintStart_toEndOf="@+id/report"
+        app:layout_constraintTop_toBottomOf="@+id/summary"/>
 
     <TextView
         android:id="@+id/detailed_report"
@@ -130,7 +144,7 @@
         android:typeface="monospace"
         android:inputType="textMultiLine"
         android:singleLine="false"
-        app:layout_constraintTop_toBottomOf="@+id/cust_id"
+        app:layout_constraintTop_toBottomOf="@+id/daily"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

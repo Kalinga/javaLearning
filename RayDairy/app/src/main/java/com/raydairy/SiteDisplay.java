@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 
+import static com.raydairy.MainActivity.ray_dairy_site;
+
 public class SiteDisplay extends AppCompatActivity implements View.OnFocusChangeListener {
     private static final String TAG = "RAYActivity";
     private String siteName;
@@ -29,10 +31,25 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_site_display);
+
         Intent intent = getIntent();
-        siteName = intent.getStringExtra(MainActivity.ray_dairy_site);
+        siteName = intent.getStringExtra(ray_dairy_site);
+
+        String siteName_ = "";
         TextView textView = findViewById(R.id.site_id);
-        textView.setText(siteName);
+
+        if (siteName.equals(getString(R.string.site_42)))
+            siteName_ = siteName + " 1-99";
+        else if (siteName.equals(getString(R.string.site_SSN )))
+            siteName_ = siteName + " 100-199";
+        else if (siteName.equals(getString(R.string.site_SS )))
+            siteName_ = siteName + " 200-299";
+        else if (siteName.equals(getString(R.string.site_SP )))
+            siteName_ = siteName + " 300-399";
+        else if (siteName.equals(getString(R.string.site_ASP )))
+            siteName_ = siteName + " 400-499";
+
+        textView.setText(siteName_);
 
         (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
         (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
@@ -65,10 +82,18 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
         String details = "";
 
         switch(view.getId()){
+            case R.id.daily:
+                Intent intent = new Intent(this, DailyDetails.class);
+                intent.putExtra(ray_dairy_site, siteName);
+
+                startActivity(intent);
+                break;
             case R.id.add_cust:
                 (findViewById(R.id.cust_id)).setVisibility(View.INVISIBLE);
                 (findViewById(R.id.report)).setVisibility(View.INVISIBLE);
                 (findViewById(R.id.detailed_report)).setVisibility(View.INVISIBLE);
+                (findViewById(R.id.whatsapp)).setVisibility(View.INVISIBLE);
+                (findViewById(R.id.daily)).setVisibility(View.INVISIBLE);
 
                 (findViewById(R.id.new_cust_id)).setVisibility(View.VISIBLE);
                 (findViewById(R.id.new_cust_name)).setVisibility(View.VISIBLE);
@@ -173,6 +198,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                     (findViewById(R.id.cust_id)).setVisibility(View.VISIBLE);
                     (findViewById(R.id.report)).setVisibility(View.VISIBLE);
                     (findViewById(R.id.detailed_report)).setVisibility(View.VISIBLE);
+                    (findViewById(R.id.whatsapp)).setVisibility(View.VISIBLE);
+                    (findViewById(R.id.daily)).setVisibility(View.VISIBLE);
     
                     (findViewById(R.id.new_cust_id)).setVisibility(View.INVISIBLE);
                     (findViewById(R.id.new_cust_name)).setVisibility(View.INVISIBLE);
@@ -219,6 +246,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
             site_id = 3;
         else if (siteName.equals(getString(R.string.site_SP )))
             site_id = 4;
+        else if (siteName.equals(getString(R.string.site_ASP )))
+            site_id = 5;
         return site_id;
     }
 

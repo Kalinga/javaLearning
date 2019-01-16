@@ -82,7 +82,7 @@
         />
 
     <Button
-        android:id="@+id/calc"
+        android:id="@+id/asapurana"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -90,7 +90,7 @@
         android:layout_marginStart="8dp"
         android:height="100dp"
         android:onClick="buttonClickHandler"
-        android:text="@string/calc"
+        android:text="@string/site_ASP"
         android:textSize="18sp"
         android:visibility="visible"
 

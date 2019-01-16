@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".FirstViewAfterIinstallation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,10 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".SiteDisplay" />
+        <activity android:name=".DailyDetails" />
         <activity android:name=".GlobalSettingsActivity" />
         <activity android:name=".RateChart" />
         <activity android:name=".activity_list_view" />
-        <activity android:name=".Calculator"></activity>
+        <activity android:name=".Calculator"/>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
