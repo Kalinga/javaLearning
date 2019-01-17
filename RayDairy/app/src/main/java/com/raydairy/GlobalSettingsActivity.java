@@ -31,6 +31,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     private static final String TAG = "RAYActivity";
     public static final String DATABASE_NAME = "users.db";
+    private BackupManager backupManager;
 
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
@@ -109,41 +110,6 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         ed.setOnFocusChangeListener(this);
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_global_settings);
-
-        //dbh =  new DatabaseHelper(this);
-        //dbh.updateData(27.50f);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("com.raydairy.broadcast.RESET_TRANSACTION"));
-
-        setOnFocusChangeListener(R.id.base_price);
-
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
-
-        SharedPreferences.Editor editor = prefs.edit();
-        float old_price = prefs.getFloat("price", 24.40f);
-        ((EditText) findViewById(R.id.base_price)).setText(Float.toString(old_price));
-    }
-
-    @Override
-    protected void onDestroy() {
-        // Unregister since the activity is about to be closed.
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
-        super.onDestroy();
-    }
-    public void buttonClickHandler(View view) {
-        String name = ((Button) view).getText().toString();
-        Log.v(TAG, name);
-        Intent intent = null;
-        if (name.equals("Save")) {
-            Log.v(TAG, "Save Price");
-            savePrice();
-        }
-    }
 
     public String space(int n) {
         StringBuilder str = new StringBuilder("");
@@ -188,34 +154,66 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         dialog.show(getSupportFragmentManager(), "Reset Transaction?");
     }
 
-    /*public void resetDBbuttonClickHandler(View view) {
-        String DB_PATH = getApplicationContext().getDatabasePath(DATABASE_NAME).getPath();
-        File file = new File(DB_PATH );
-        if (file.exists()) {
-                boolean deleted = file.delete();
-                Log.v(TAG, "Database deleted: " + String.valueOf(deleted));
-        }
-
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("db_created", false);
-        editor.commit();
-    }*/
+    public void backupCustomer(View view) {
+        backupManager.dataChanged();
+    }
 
     private void savePrice() {
         try {
             float price = Float.parseFloat(((EditText) findViewById(R.id.base_price)).getText().toString());
+            String phone_number = (((EditText) findViewById(R.id.whatsAppNo)).getText().toString());
             SharedPreferences prefs = PreferenceManager
                     .getDefaultSharedPreferences(this);
 
             SharedPreferences.Editor editor = prefs.edit();
             editor.putFloat("price", price);
+            editor.putString("phone_number", phone_number);
+            
             editor.commit();
         }
         catch (java.lang.NumberFormatException e) {
                 Log.v(TAG, "NumberFormatException ");
             }
+    }
+    
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_global_settings);
+
+        backupManager = new BackupManager(getBaseContext());
+        
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
+                new IntentFilter("com.raydairy.broadcast.RESET_TRANSACTION"));
+
+        setOnFocusChangeListener(R.id.base_price);
+
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = prefs.edit();
+        float old_price = prefs.getFloat("price", 24.40f);
+        ((EditText) findViewById(R.id.base_price)).setText(Float.toString(old_price));
+        
+        String phone_number = prefs.getString("phone_number", "918249279918");
+        ((EditText) findViewById(R.id.whatsAppNo)).setText(phone_number);
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Unregister since the activity is about to be closed.
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
+    }
+
+    public void buttonClickHandler(View view) {
+        String name = ((Button) view).getText().toString();
+        Log.v(TAG, name);
+        Intent intent = null;
+        if (name.equals("Save")) {
+            Log.v(TAG, "Save Price");
+            savePrice();
+        }
     }
 
     @Override
@@ -228,3 +226,19 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         } // focus out
     } // onFocusChange
 }
+
+
+/*public void resetDBbuttonClickHandler(View view) {
+    String DB_PATH = getApplicationContext().getDatabasePath(DATABASE_NAME).getPath();
+    File file = new File(DB_PATH );
+    if (file.exists()) {
+            boolean deleted = file.delete();
+            Log.v(TAG, "Database deleted: " + String.valueOf(deleted));
+    }
+
+    SharedPreferences prefs = PreferenceManager
+            .getDefaultSharedPreferences(this);
+    SharedPreferences.Editor editor = prefs.edit();
+    editor.putBoolean("db_created", false);
+    editor.commit();
+}*/

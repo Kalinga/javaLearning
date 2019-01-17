@@ -263,7 +263,8 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 String sum_tot = crsr.getString(crsr.getColumnIndex("SUM(TOTAL)"));
                 String sum_quant = crsr.getString(crsr.getColumnIndex("SUM(QUANTITY)"));
                 details += "TOTAL AMOUNT TO PAY :\t" + sum_tot + "\n";
-                details += "TOTAL MILK COLLECTED:\t" + sum_quant + "\n\n";
+                details += "TOTAL MILK COLLECTED:\t" + sum_quant + "\n";
+                details += "DATE:" + space(1) + "QUANT:" + "__:" + "FAT:" + "SNF" + "\n"; 
             } while (crsr.moveToNext());
         }
             crsr.close();

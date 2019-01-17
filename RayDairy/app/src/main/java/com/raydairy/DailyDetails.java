@@ -71,6 +71,7 @@ public class DailyDetails extends AppCompatActivity  {
         crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), datesArr.get(listindx));
         details += header();
         int totalTobePaid = 0;
+        int totalMilkCollected = 0;
         if (crsr != null && crsr.moveToFirst()) {
             do {
                 int id = crsr.getInt(crsr.getColumnIndex("ID"));
@@ -87,6 +88,7 @@ public class DailyDetails extends AppCompatActivity  {
 
                 int ipric = crsr.getInt(crsr.getColumnIndex("TOTAL"));
                 totalTobePaid += ipric;
+                totalMilkCollected += crsr.getInt(crsr.getColumnIndex("QUANTITY"));
 
                 //String date = crsr.getString(crsr.getColumnIndex("DATE"));
                 String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
@@ -114,7 +116,12 @@ public class DailyDetails extends AppCompatActivity  {
         if (listindx == 0){
             ((Button) findViewById(R.id.prev)).setEnabled(false);
         }
+
         details +=  "\n Total to be paid:   " + Integer.toString(totalTobePaid);
+        details +=  "\n Total milk collected:   " + Integer.toString(totalMilkCollected);
+        String wAvg = weightedAvg(datesArr.get(listindx));
+        details +=  "\n Averaged FAT and SNF:   " + wAvg;
+
         ((TextView) findViewById(R.id.detailed_report)).setText(details);
 
     }
@@ -215,4 +222,31 @@ public class DailyDetails extends AppCompatActivity  {
 
         return str.toString();
     }
+}
+
+private String weightedAvg(String date) {
+    Cursor crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), date);
+    float wFat = 0.0f;
+    float wSNF = 0.0f;
+    float totQuant = 0.0f;
+    if (crsr != null && crsr.moveToFirst()) {
+        do {
+            Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+            float fat = crsr.getFloat(crsr.getColumnIndex("FAT"));
+            float snf= crsr.getFloat(crsr.getColumnIndex("SNF"));
+            float quant = crsr.getFloat(crsr.getColumnIndex("QUANTITY"));
+            wFat += (fat * quant);
+            wSNF += (snf * quant);
+            totQuant += quant;
+        } while (crsr.moveToNext());
+    }
+    crsr.close();
+    try {
+        wFat = wFat / totQuant;
+        wSNF = wSNF / totQuant;
+    } catch (java.lang.NumberFormatException e) {
+        Log.v(TAG, "NumberFormatException ");
+    }
+    return  formatString(Float.toString(wFat)) + " : " +
+            formatString(Float.toString(wSNF));
 }
