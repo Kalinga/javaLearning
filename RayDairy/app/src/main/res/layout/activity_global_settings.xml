@@ -157,7 +157,26 @@
         app:layout_constraintStart_toStartOf="@+id/backup"
         app:layout_constraintTop_toBottomOf="@+id/backup" />
 
-    <TextView
+    <Button
+        android:id="@+id/whatsapp_cust"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="2dp"
+
+        android:onClick="whatsappCustomer"
+        android:text="@string/whatsapp_cust"
+
+        android:textSize="12sp"
+        android:visibility="visible"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/list_all_cust"
+        app:layout_constraintTop_toBottomOf="@+id/list_all_cust" />
+
+    <EditText
         android:id="@+id/all_customer_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -166,8 +185,10 @@
         android:layout_marginTop="8dp"
 
         android:hint="List of all customers..."
+        android:textIsSelectable="true"
         android:background="#D0D0D0"
         android:fadeScrollbars="true"
+        android:focusable="true"
 
         android:textColor="@android:color/holo_red_dark"
         android:textSize="12sp"
@@ -178,7 +199,7 @@
         android:gravity="left"
         android:visibility="invisible"
 
-        app:layout_constraintTop_toBottomOf="@+id/list_all_cust"
+        app:layout_constraintTop_toBottomOf="@+id/whatsapp_cust"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />

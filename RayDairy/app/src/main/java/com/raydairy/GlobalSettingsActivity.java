@@ -32,7 +32,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     private static final String TAG = "RAYActivity";
     public static final String DATABASE_NAME = "users.db";
-    private BackupManager backupManager = new BackupManager(this);
+    //private BackupManager backupManager = new BackupManager(this);
 
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
@@ -157,9 +157,38 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     public void backupCustomer(View view) {
         Log.v(TAG, "GlobalSettingsActivity:backupCustomer:");
-        backupManager.dataChanged();
+        String custDetails = ((TextView)(findViewById(R.id.all_customer_view))).getText().toString();
+        String lines[] = custDetails .split("\\r?\\n");
+        for (String line : lines) {
+            Log.v(TAG, line);
+            String[] splited = line.split("\\s+", 2);
+            dbHelper.addCustomer(Integer.parseInt(splited[0]), splited[1]);
+        }
     }
 
+    public void whatsappCustomer(View view) {
+        try {
+            SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(this);
+
+            String phone = prefs.getString("phone_number", "918249279918");
+
+            Intent sendIntent =new Intent("android.intent.action.MAIN");
+            //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setPackage("com.whatsapp");
+            sendIntent.setType("text/plain");
+            sendIntent.putExtra("jid", phone +"@s.whatsapp.net");
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    ((TextView)(findViewById(R.id.all_customer_view))).getText().toString());
+
+            startActivity(sendIntent);
+
+        } catch (/*PackageManager.NameNotFoundException e*/ Exception e) {
+            Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
     private void savePrice() {
         try {
             float price = Float.parseFloat(((EditText) findViewById(R.id.base_price)).getText().toString());
@@ -187,8 +216,6 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
         detail_textView.setMaxLines(10);
         detail_textView.setVerticalScrollBarEnabled(true);
 
-        backupManager = new BackupManager(getBaseContext());
-        
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
                 new IntentFilter("com.raydairy.broadcast.RESET_TRANSACTION"));
 

@@ -1,8 +1,10 @@
 package com.raydairy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -71,7 +73,7 @@ public class DailyDetails extends AppCompatActivity  {
         crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), datesArr.get(listindx));
         details += header();
         int totalTobePaid = 0;
-        int totalMilkCollected = 0;
+        float totalMilkCollected = 0.0f;
         if (crsr != null && crsr.moveToFirst()) {
             do {
                 int id = crsr.getInt(crsr.getColumnIndex("ID"));
@@ -88,7 +90,7 @@ public class DailyDetails extends AppCompatActivity  {
 
                 int ipric = crsr.getInt(crsr.getColumnIndex("TOTAL"));
                 totalTobePaid += ipric;
-                totalMilkCollected += crsr.getInt(crsr.getColumnIndex("QUANTITY"));
+                totalMilkCollected += crsr.getFloat(crsr.getColumnIndex("QUANTITY"));
 
                 //String date = crsr.getString(crsr.getColumnIndex("DATE"));
                 String total = crsr.getString(crsr.getColumnIndex("TOTAL"));
@@ -118,7 +120,10 @@ public class DailyDetails extends AppCompatActivity  {
         }
 
         details +=  "\n Total to be paid:   " + Integer.toString(totalTobePaid);
-        details +=  "\n Total milk collected:   " + Integer.toString(totalMilkCollected);
+        details +=  "\n Total milk collected:   " +
+                Float.toString(totalMilkCollected) +
+                "/" + Float.toString(totalMilkCollected * 1.03f);
+
         String wAvg = weightedAvg(datesArr.get(listindx));
         details +=  "\n Averaged FAT and SNF:   " + wAvg;
 
@@ -162,8 +167,10 @@ public class DailyDetails extends AppCompatActivity  {
                 break;
             case R.id.whatsapp:
                 try {
-                    String phone = "918249279918";
+                    SharedPreferences prefs = PreferenceManager
+                            .getDefaultSharedPreferences(this);
 
+                    String phone = prefs.getString("phone_number", "918249279918");
                     Intent sendIntent =new Intent("android.intent.action.MAIN");
                     //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
                     sendIntent.setAction(Intent.ACTION_SEND);

@@ -3,9 +3,11 @@ package com.raydairy;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
@@ -217,7 +219,10 @@ public class SiteDisplay extends AppCompatActivity implements View.OnFocusChange
                 break;
              case R.id.whatsapp:
                 try {
-                    String phone = "918249279918";
+                    SharedPreferences prefs = PreferenceManager
+                            .getDefaultSharedPreferences(this);
+
+                    String phone = prefs.getString("phone_number", "918249279918");
 
                     Intent sendIntent =new Intent("android.intent.action.MAIN");
                     //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));

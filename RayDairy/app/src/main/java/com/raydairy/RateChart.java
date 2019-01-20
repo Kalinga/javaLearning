@@ -35,44 +35,6 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
     //Map priceList = populatePriceList();
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
-
-    /*private Map<Object,Map> populatePriceList() {
-        Map price = new HashMap();
-        Map fat39_41 = new HashMap();
-        MathContext mc = new MathContext(2);
-        BigDecimal dc = new BigDecimal(0.1, mc).setScale(2,RoundingMode.UNNECESSARY);
-
-        BigDecimal snf_start = new BigDecimal(9.4, mc);
-        BigDecimal price_start = new BigDecimal(29.0, mc);
-
-        for (int i=0; i<30; i++) {
-            BigDecimal _snf = snf_start.subtract(dc.multiply(new BigDecimal(i)));
-            BigDecimal _price = price_start.subtract(dc.multiply(new BigDecimal(3).multiply(new BigDecimal(i))));
-
-            Log.v(TAG, String.valueOf(_snf));
-            Log.v(TAG, String.valueOf(_price));
-
-            fat39_41.put(_snf, _price );
-        }
-
-        price.put(3.9f, fat39_41);
-        price.put(4.0f, fat39_41);
-        price.put(4.1f, fat39_41);
-
-        return price;
-    }
-
-    private String getPrice(float fat, float snf) {
-        Map snf_price = (Map)priceList.get(fat);
-        BigDecimal _snf = new BigDecimal(snf, new MathContext(2)).setScale(2,RoundingMode.UNNECESSARY);
-        BigDecimal  price = (BigDecimal)snf_price.get(_snf);
-
-        out.println(snf_price.toString());
-
-        return price.toString();
-
-    } */
-
     private String calculatePrice(float fat, float snf) {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
@@ -305,3 +267,40 @@ public class RateChart extends AppCompatActivity implements View.OnFocusChangeLi
         }
     }
 }
+
+    /*private Map<Object,Map> populatePriceList() {
+        Map price = new HashMap();
+        Map fat39_41 = new HashMap();
+        MathContext mc = new MathContext(2);
+        BigDecimal dc = new BigDecimal(0.1, mc).setScale(2,RoundingMode.UNNECESSARY);
+
+        BigDecimal snf_start = new BigDecimal(9.4, mc);
+        BigDecimal price_start = new BigDecimal(29.0, mc);
+
+        for (int i=0; i<30; i++) {
+            BigDecimal _snf = snf_start.subtract(dc.multiply(new BigDecimal(i)));
+            BigDecimal _price = price_start.subtract(dc.multiply(new BigDecimal(3).multiply(new BigDecimal(i))));
+
+            Log.v(TAG, String.valueOf(_snf));
+            Log.v(TAG, String.valueOf(_price));
+
+            fat39_41.put(_snf, _price );
+        }
+
+        price.put(3.9f, fat39_41);
+        price.put(4.0f, fat39_41);
+        price.put(4.1f, fat39_41);
+
+        return price;
+    }
+
+    private String getPrice(float fat, float snf) {
+        Map snf_price = (Map)priceList.get(fat);
+        BigDecimal _snf = new BigDecimal(snf, new MathContext(2)).setScale(2,RoundingMode.UNNECESSARY);
+        BigDecimal  price = (BigDecimal)snf_price.get(_snf);
+
+        out.println(snf_price.toString());
+
+        return price.toString();
+
+    } */
