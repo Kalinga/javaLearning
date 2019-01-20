@@ -2,6 +2,7 @@ package com.raydairy;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.backup.BackupManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,7 +32,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
 
     private static final String TAG = "RAYActivity";
     public static final String DATABASE_NAME = "users.db";
-    private BackupManager backupManager;
+    private BackupManager backupManager = new BackupManager(this);
 
     DatabaseHelper dbHelper = new DatabaseHelper(this);
 
@@ -155,6 +156,7 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
     }
 
     public void backupCustomer(View view) {
+        Log.v(TAG, "GlobalSettingsActivity:backupCustomer:");
         backupManager.dataChanged();
     }
 
@@ -180,6 +182,10 @@ public class GlobalSettingsActivity extends AppCompatActivity implements View.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_global_settings);
+
+        TextView detail_textView = findViewById(R.id.all_customer_view);
+        detail_textView.setMaxLines(10);
+        detail_textView.setVerticalScrollBarEnabled(true);
 
         backupManager = new BackupManager(getBaseContext());
         

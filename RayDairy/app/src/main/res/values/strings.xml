@@ -10,7 +10,7 @@
     <string name="calc">CALCULATOR</string>
 
     <string name="save">Save</string>
-    <string name="reset_db">Reset Transaction</string>
+    <string name="reset_db">Reset Trans</string>
     <string name="backup_cust">Backup Database</string>
     <string name="all_cust">CUSTOMERS</string>
 

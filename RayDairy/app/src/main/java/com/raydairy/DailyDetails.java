@@ -222,31 +222,44 @@ public class DailyDetails extends AppCompatActivity  {
 
         return str.toString();
     }
-}
 
-private String weightedAvg(String date) {
-    Cursor crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), date);
-    float wFat = 0.0f;
-    float wSNF = 0.0f;
-    float totQuant = 0.0f;
-    if (crsr != null && crsr.moveToFirst()) {
-        do {
-            Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
-            float fat = crsr.getFloat(crsr.getColumnIndex("FAT"));
-            float snf= crsr.getFloat(crsr.getColumnIndex("SNF"));
-            float quant = crsr.getFloat(crsr.getColumnIndex("QUANTITY"));
-            wFat += (fat * quant);
-            wSNF += (snf * quant);
-            totQuant += quant;
-        } while (crsr.moveToNext());
+    private String weightedAvg(String date) {
+        Cursor crsr = dbHelper.getCollectionByDateAndSite(getSiteId(), date);
+        float wFat = 0.0f;
+        float wSNF = 0.0f;
+        float totQuant = 0.0f;
+        if (crsr != null && crsr.moveToFirst()) {
+            do {
+                Log.v(TAG, Arrays.toString(crsr.getColumnNames()));
+                float fat = crsr.getFloat(crsr.getColumnIndex("FAT"));
+                float snf= crsr.getFloat(crsr.getColumnIndex("SNF"));
+                float quant = crsr.getFloat(crsr.getColumnIndex("QUANTITY"));
+                wFat += (fat * quant);
+                wSNF += (snf * quant);
+                totQuant += quant;
+            } while (crsr.moveToNext());
+        }
+        crsr.close();
+        try {
+            wFat = wFat / totQuant;
+            wSNF = wSNF / totQuant;
+        } catch (java.lang.NumberFormatException e) {
+            Log.v(TAG, "NumberFormatException ");
+        }
+        return  formatString(Float.toString(wFat)) + " : " +
+                formatString(Float.toString(wSNF));
     }
-    crsr.close();
-    try {
-        wFat = wFat / totQuant;
-        wSNF = wSNF / totQuant;
-    } catch (java.lang.NumberFormatException e) {
-        Log.v(TAG, "NumberFormatException ");
+
+    private String formatString(String str) {
+        if (str.contains(".")) {
+            String a = str.split("\\.")[0];
+            String b = str.split("\\.")[1];
+            if (b.length() > 3)
+                return a + "." + b.substring(0, 2);
+            else
+                return a + "." + b;
+        }  else {
+            return str;
+        }
     }
-    return  formatString(Float.toString(wFat)) + " : " +
-            formatString(Float.toString(wSNF));
 }
