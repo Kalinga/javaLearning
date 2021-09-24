@@ -15,9 +15,11 @@ public class Utilities {
 
         for(int i= 0; i < s.length(); i++) {
             if(null == characterMap.get(s.charAt(i))) {
+                // Put the character and the corresponding Index
                 characterMap.put(s.charAt(i), i);
             } else
             {
+                // Indicate the Character that we already seen
                 characterMap.put(s.charAt(i), -1);
             }
         }
@@ -32,8 +34,24 @@ public class Utilities {
         return minIndex==Integer.MAX_VALUE? -1:minIndex ;
     }
 
+    public static int smallestCharacter(String s) {
+        if(null == s || s.isEmpty())
+            return -1;
+
+        int min = Integer.MAX_VALUE;
+
+        for (char c : s.toCharArray()) {
+            //System.out.println(c);
+            if (min > c)
+                min = c;
+        }
+        return min;
+    }
+
     public static void main(String[] args) {
         String str = "arizona";
         System.out.println(firstUniqueCharacter(str));
+        System.out.printf("%c",smallestCharacter(str));
+
     }
 }

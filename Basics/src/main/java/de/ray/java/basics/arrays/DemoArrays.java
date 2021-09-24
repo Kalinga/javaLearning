@@ -3,10 +3,13 @@ package de.ray.java.basics.arrays;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+// List is the Abstracted Data Type (ADT)/Abstraction and Dynamic Array, Linked List is the Implementation (DS)
+//Map: ADT where as Tree Map, Hash Map and Hash Table are DS
+// Big O an upper bound of the Complexity in the worst case
 public class DemoArrays {
     public static void main(String[] args) {
         //System.out.println(removeArrayElement(new int[] {4,3,1,3}, 3)); //2
-        System.out.println(removeArrayElement(new int[] {1,2,3,5,6,3,5,5,4,3}, 3)); //
+        System.out.println(removeArrayElement(new int[] {1}, 3)); //
         }
 
     static int removeArrayElement(int[] arr, int num) {
@@ -16,6 +19,8 @@ public class DemoArrays {
         for (int i = 0; i < arr.length; i++){
             System.out.printf("%d,%d,%d\n",i, newArrayIndex, arr[i]);
             if(num != arr[i] ) {
+                // Don't Copy Unnecessary initial Numbers which is different
+                // from the element to be removed in the Question
                 if (newArrayIndex < i) {
                     arr[newArrayIndex] = arr[i];
                 }

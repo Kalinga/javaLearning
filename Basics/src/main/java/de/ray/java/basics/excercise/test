@@ -1,0 +1,59 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+class Result {
+
+    /*
+     * Complete the 'bestCombo' function below.
+     *
+     * The function is expected to return a LONG_INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY popularity
+     *  2. INTEGER k
+     */
+
+    public static List<Long> bestCombo(List<Integer> popularity, int k) {
+    // Write your code here
+    //var sortedPopularity = popularity.sort(c);
+    var  popularCombos = new Long[] {0L};
+
+    /*if (0==k) {
+        return popularity; as Long
+
+    }*/
+
+   /* if (k>popularity.size()) {
+
+    } */ //Exception
+
+
+    var sortedPopularity = Collections.sort(popularity, Collections.reverseOrder());
+    System.out.println(sortedPopularity.toString());
+
+    Long combo = 0L;
+    for(int j=0; j< popularity.size(); j++) {
+        Long topCombos = 0L;
+        for(int i=0; i < popularity.size();i++) {
+            int element = popularity.get(j+i);
+            topCombos = topCombos + element;
+        }
+        popularCombos.add(topCombos) ;
+        combo++;
+    }
+
+    return popularCombos;
+
+    }
+
+}
+public class Solution {
